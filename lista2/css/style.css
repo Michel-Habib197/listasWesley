@@ -42,12 +42,12 @@ body {
     border: 0.2rem solid rgb(11, 11, 107);
 }
 
-.questao1a{
-
+.resolucao_questao1a{
+    margin-left: 1rem;
 }
 
-.questao1b{
-
+resolucao_questao1b{
+    margin-left: 1rem;
 }
 
 .questao2 {
