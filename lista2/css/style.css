@@ -1,0 +1,71 @@
+* {
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html,
+body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo {
+    border: 0.5rem solid red;
+    display: flex
+    justify-content: center;
+
+}
+
+.menu{
+    /* width: 50rem; */
+    display: flex;
+    border: 0.3rem solid aqua;
+    margin-inline: 0.1rem;
+    /* padding: 1rem; */
+    justify-content: end;
+    text-align: center;
+    
+}
+
+.questao1 {
+    border: 0.5rem solid blue;
+    background-color: lightblue;
+}
+
+.resolucao_questao1{
+    border: 0.2rem solid rgb(11, 11, 107);
+}
+
+.questao1a{
+
+}
+
+.questao1b{
+
+}
+
+.questao2 {
+    border: 0.5rem solid green;
+}
+
+.questao3 {
+     border: 0.5rem solid orange;
+}
+
+.questao4 {
+    border: 0.5rem solid beige;
+}
+
+.questao5 {
+    border: 0.5rem solid purple;
+}
+
+.questao6 {
+    border: 0.5rem solid burlywood;
+}
