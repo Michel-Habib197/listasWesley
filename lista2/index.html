@@ -28,7 +28,7 @@
                 <p>a. A idade da pessoa no ano atual.</p>
                 <div class="resolucao_questao1a">
                     <input type="number" id="anoNascimento" placeholder="Ano de nascimento">
-                    <button onclick="calcularIdade()">Calcular</button>
+                    <button onclick="calcularIdade()">Calcular Idade</button>
                     <p><span>A idade da pessoa é: </span><span id="idadeAtual"></span></p>
                 </div>
 
@@ -44,18 +44,48 @@
     <section class="questao2">
         2) Receba o salário de um funcionário, calcule e mostre o novo salário com aumento de
         25%.
+        <div class="resolucao_questao2">
+            <span>Digite o salario atual da pessoa: </span>
+            <input type="number" id="salarioAtual" placeholder="salarioAtual">
+            <button onclick="calcularNovoSalario()">Calcular novo salário</button>
+            <p><span>O novo salário da pessoa é de: </span><span id="novoSalario"></span></p>
+        </div>
     </section>
     <section class="questao3">
         3) Receba uma temperatura em Celsius, calcule e mostre essa temperatura em Fahrenheit.
         OBS: F = (C * 1,8) + 32.
+        <div class="resolucao_questao3">
+            <span>Digite a temperatura em graus Celsius: </span>
+            <input type="number" id="tempCel" placeholder="°C">
+            <button onclick="converterCelsiusFahrenheit()">Converter</button>
+            <p><span>A temperatura convertida para Fahrenheit será de: </span><span id="tempFahr"></span></p>
+        </div>
     </section>
     <section class="questao4">
         4) Receba três notas, calcule e apresente a média aritmética das notas informadas.
+        <div class="resolucao_questao4">
+            <ul>
+                Notas:
+                <span><input type="number" id="nota1" placeholder="Primeira nota"></span>
+                <span><input type="number" id="nota2" placeholder="Segunda nota"></span>
+                <span><input type="number" id="nota3" placeholder="Terceira nota"></span>
+                <button onclick="calcularMediaNotas()">Calcular média</button>
+            </ul>
+            <span>A média das notas é: </span><span id="mediaNotas"></span>
+        </div>
     </section>
     <section class="questao5">
         5) Receba os valores dos dois catetos de um triângulo, calcule e apresente o valor da
-        hipotenusa. OBS - Teorema de Pitágoras: a
-        2 = b2 + c2
+        hipotenusa. OBS - Teorema de Pitágoras: a2 = b2 + c2
+        <div class="resolucao_questao5">
+            <ul>
+                Catetos:
+                <input type="number" id="cateto1" placeholder="Cateto 1">
+                <input type="number" id="cateto2" placeholder="Cateto 2">
+                <button onclick="calcularHipotenusa()">Calcular hipotenusa</button>
+            </ul>
+            <span>O valor da hipotenusa é de: </span><span id="hipotenusa"></span>
+        </div>
     </section>
     <section class="questao6">
         6) Receba o raio, calcule e apresente:
