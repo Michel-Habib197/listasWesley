@@ -16,16 +16,17 @@ body {
 }
 
 .titulo {
-    border: 0.5rem solid red;
-    display: flex
-    justify-content: center;
+    /* border: 0.5rem solid red; */
+    text-align: center;
+    background-color: #252440;
+    color: whitesmoke;
 
 }
 
 .menu{
     /* width: 50rem; */
     display: flex;
-    border: 0.3rem solid aqua;
+    /* border: 0.3rem solid aqua; */
     margin-inline: 0.1rem;
     /* padding: 1rem; */
     justify-content: end;
@@ -34,12 +35,13 @@ body {
 }
 
 .questao1 {
-    border: 0.5rem solid blue;
-    background-color: lightblue;
+    /* border: 0.5rem solid blue; */
+    background-color: white;
 }
 
 .resolucao_questao1{
-    border: 0.2rem solid rgb(11, 11, 107);
+    /* border: 0.2rem solid rgb(11, 11, 107); */
+    margin-left: 1rem;
 }
 
 .resolucao_questao1a{
@@ -51,21 +53,49 @@ resolucao_questao1b{
 }
 
 .questao2 {
-    border: 0.5rem solid green;
+    background-color: #252440;
+    color: whitesmoke;
+}
+
+.resolucao_questao2{
+    margin-left: 1rem;
+    margin-top: 1rem;
 }
 
 .questao3 {
-     border: 0.5rem solid orange;
+     /* border: 0.5rem solid orange; */
+}
+
+.resolucao_questao3{
+    margin-left: 1rem;
+    margin-top: 1rem;
 }
 
 .questao4 {
-    border: 0.5rem solid beige;
+    background-color: #252440;
+    color: whitesmoke;
 }
 
 .questao5 {
-    border: 0.5rem solid purple;
+    /* border: 0.5rem solid purple; */
 }
 
 .questao6 {
-    border: 0.5rem solid burlywood;
+    background-color: #252440;
+    color: whitesmoke;
+}
+
+.resolucao_questao6a{
+    margin-left: 2rem;
+
+}
+
+.resolucao_questao6b{
+    margin-left: 2rem;
+
+}
+
+.resolucao_questao6c{
+    margin-left: 2rem;
+    
 }

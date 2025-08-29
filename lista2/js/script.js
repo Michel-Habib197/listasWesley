@@ -66,3 +66,22 @@ function calcularHipotenusa(){
   //Mostrar a medida da hipotenusa na tela
   document.getElementById("hipotenusa").textContent = hipotenusa.toFixed(1)
 }
+
+function calcularDimensoesCirculo(){
+  //Pegar a medida do raio
+  const raio = parseFloat(document.getElementById("raio").value)
+
+  //Calcular o comprimento
+  const comprimento = 2*Math.PI*raio
+
+  //Calcular a area
+  const area = Math.PI*Math.pow(raio, 2)
+
+  //Calcular o volume
+  const volume = (3/4)*Math.PI*Math.pow(raio, 3)
+
+  //Mostrar os resultados na tela
+  document.getElementById("comprimento").textContent = comprimento.toFixed(1);
+  document.getElementById("area").textContent = area.toFixed(1);
+  document.getElementById("volume").textContent = volume.toFixed(1);
+}

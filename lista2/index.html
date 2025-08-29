@@ -10,17 +10,17 @@
 </head>
 
 <body>
-    <div class="titulo">
+    <section class="titulo">
         Prática 2
-        <div class="menu">
+        <!-- <div class="menu">
             <button>Questão 1</button>
             <button>Questão 2</button>
             <button>Questão 3</button>
             <button>Questão 4</button>
             <button>Questão 5</button>
             <button>Questão 6</button>
-        </div>
-    </div>
+        </div> -->
+    </section>
     <section class="questao1">
         1) Receba o ano de nascimento de uma pessoa, o ano atual e imprima:
         <div class="resolucao_questao1">
@@ -70,8 +70,8 @@
                 <span><input type="number" id="nota2" placeholder="Segunda nota"></span>
                 <span><input type="number" id="nota3" placeholder="Terceira nota"></span>
                 <button onclick="calcularMediaNotas()">Calcular média</button>
+                <p>A média das notas é: <span id="mediaNotas"></span></p>
             </ul>
-            <span>A média das notas é: </span><span id="mediaNotas"></span>
         </div>
     </section>
     <section class="questao5">
@@ -83,15 +83,35 @@
                 <input type="number" id="cateto1" placeholder="Cateto 1">
                 <input type="number" id="cateto2" placeholder="Cateto 2">
                 <button onclick="calcularHipotenusa()">Calcular hipotenusa</button>
+                <p>O valor da hipotenusa é de: <span id="hipotenusa"></span></p></span>
             </ul>
-            <span>O valor da hipotenusa é de: </span><span id="hipotenusa"></span>
         </div>
     </section>
     <section class="questao6">
         6) Receba o raio, calcule e apresente:
-        <div>a. O comprimento de uma esfera: C = 2 * π * R.</div>
-        <div>b. A área de uma esfera: A = π * R2</div>
-        <div>c. O volume de uma esfera: V = 3⁄4 * π * R3</div>
+        <div>
+            Raio:
+            <input type="number" id="raio" placeholder="Raio">
+            <button onclick="calcularDimensoesCirculo()">Calcular Comprimento, Area e Volume</button>
+        </div>
+        <div>
+            a. O comprimento de uma esfera: C = 2 * π * R.
+            <div class="resolucao_questao6a">
+                <span>O valor do comprimento é: </span><span id=comprimento></span>
+            </div>
+        </div>
+        <div>
+            b. A área de uma esfera: A = π * R2
+            <div class="resolucao_questao6b">
+                <span>O valor da área é: </span><span id=area></span>
+            </div>
+        </div>
+        <div>
+            c. O volume de uma esfera: V = 3⁄4 * π * R3
+            <div class="resolucao_questao6c">
+                <span>O valor do volume é: </span><span id=volume></span>
+            </div>
+        </div>
     </section>
 </body>
 
