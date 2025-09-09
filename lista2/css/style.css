@@ -1,6 +1,7 @@
 * {
     font-size: 16px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
 }
 
 html,
@@ -8,11 +9,13 @@ body {
     height: 100%;
     padding: 0;
     margin: 0;
+    background-color: #f5f5f5;
 }
 
 body {
     display: flex;
     flex-direction: column;
+    gap: 1rem;
 }
 
 .titulo {
@@ -20,27 +23,100 @@ body {
     text-align: center;
     background-color: #252440;
     color: whitesmoke;
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
 
 }
 
-.menu{
-    /* width: 50rem; */
+
+/* ----------------- MENU (se for usar depois) ----------------- */
+.menu {
     display: flex;
-    /* border: 0.3rem solid aqua; */
-    margin-inline: 0.1rem;
-    /* padding: 1rem; */
-    justify-content: end;
-    text-align: center;
-    
+    justify-content: flex-end;
+    gap: 0.5rem; /* Espaço entre botões */
+    padding: 0.5rem;
 }
 
-.questao1 {
-    /* border: 0.5rem solid blue; */
+.menu button {
+    background-color: #ffffff33;
+    color: whitesmoke;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+
+.menu button:hover {
+    background-color: #ffffff55;
+}
+
+section{
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.questao1, .questao3, .questao5{
+    background-color: white;
+    color: #252440;
+} 
+
+.questao2, .questao4, .questao6{
+    background-color: #252440;
+    color: whitesmoke;   
+}
+
+.resolucao_questao1,
+.resolucao_questao2,
+.resolucao_questao3,
+.resolucao_questao4,
+.resolucao_questao5,
+.resolucao_questao6a,
+.resolucao_questao6b,
+.resolucao_questao6c {
+    margin-top: 0.5rem;
+}
+
+input[type="number"]{
+    padding: 0.4rem;
+    border: 1px solid #ccc;
+    border-radius: 0.3rem;
+    margin: 0.2rem 0.5rem;
+    width: 10rem
+}
+
+input[type="number"]:focus{
+    outline: none;
+    /* background-color: #252440; */
+    box-shadow: 0 0 4px rgba(37,36,64,0.5);
+}
+
+button{
+    background-color: #252440;
+    color: whitesmoke;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin: 0.3rem 0;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+button:hover{
+    background-color: #3d3b70;
+}
+
+
+/* .questao1 {
+
     background-color: white;
 }
 
 .resolucao_questao1{
-    /* border: 0.2rem solid rgb(11, 11, 107); */
+
     margin-left: 1rem;
 }
 
@@ -62,10 +138,6 @@ resolucao_questao1b{
     margin-top: 1rem;
 }
 
-.questao3 {
-     /* border: 0.5rem solid orange; */
-}
-
 .resolucao_questao3{
     margin-left: 1rem;
     margin-top: 1rem;
@@ -76,9 +148,6 @@ resolucao_questao1b{
     color: whitesmoke;
 }
 
-.questao5 {
-    /* border: 0.5rem solid purple; */
-}
 
 .questao6 {
     background-color: #252440;
@@ -98,4 +167,4 @@ resolucao_questao1b{
 .resolucao_questao6c{
     margin-left: 2rem;
     
-}
+} */
