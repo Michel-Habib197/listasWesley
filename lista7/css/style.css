@@ -1,0 +1,53 @@
+* {
+    font-size: 16px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: #f5f5f5;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+
+.questao1 {
+    border: 0.3rem solid yellow;
+}
+
+.questao2 {
+    border: 0.3rem solid blue;
+}
+
+.questao3 {
+    border: 0.3rem solid green;
+}
+
+.questao4 {
+    border: 0.3rem solid brown;
+}
+
+.enunciado1,
+.enunciado2,
+.enunciado3,
+.enunciado4 {
+    padding: 1rem;
+    margin-bottom: 2rem;
+    border: 0.2rem solid goldenrod;
+}
+
+.resolucao1,
+.resolucao2,
+.resolucao3,
+.resolucao4 {
+    padding: 1rem;
+      border: 0.2rem solid rgb(157, 206, 125);
+}
