@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Máquina de Troco</title>
+</head>
+<body>
+<h2>Máquina de Troco</h2>
+<label>Valor da compra: <input type="number" id="compra"></label><br>
+<label>Valor pago: <input type="number" id="pago"></label><br>
+<button onclick="calcularTroco()">Calcular</button>
+<pre id="resultado"></pre>
+
+<script>
+function calcularTroco() {
+    let compra = parseInt(document.getElementById("compra").value);
+    let pago = parseInt(document.getElementById("pago").value);
+    let res = document.getElementById("resultado");
+
+    if(pago < compra){
+        res.textContent = "A quantia paga é insuficiente!";
+        return;
+    }
+
+    let troco = pago - compra;
+    let notas = [50,20,10,5,2,1];
+    let qtde = {};
+
+    let texto = "Troco: R$ "+troco+"\n";
+    for(let n of notas){
+        qtde[n] = Math.floor(troco/n);
+        troco = troco % n;
+        texto += `Notas de R$ ${n},00: ${qtde[n]}\n`;
+    }
+    res.textContent = texto;
+}
+</script>
+</body>
+</html>

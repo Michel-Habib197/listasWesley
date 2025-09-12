@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Consulta de Preço</title>
+</head>
+<body>
+<h2>Consulta de Preço</h2>
+
+<!-- Entrada por código -->
+<label>Código do Produto: <input type="number" id="codigo"></label><br>
+
+<!-- Entrada por nome -->
+<label>Nome do Produto: <input type="text" id="nome"></label><br>
+
+<button onclick="preco()">Consultar</button>
+<pre id="resPreco"></pre>
+
+<script>
+function preco(){
+  let c = parseInt(document.getElementById("codigo").value);
+  let n = document.getElementById("nome").value.trim().toLowerCase();
+
+  let produtos = {
+    1:{nome:"Sapato", preco:139.99},
+    2:{nome:"Bolsa 1", preco:123.89},
+    3:{nome:"Camisa", preco:129.98},
+    4:{nome:"Calça", preco:91.72},
+    5:{nome:"Blusa", preco:82.35},
+    6:{nome:"Bolsa 2", preco:193.89},
+  };
+
+  let p = null;
+
+  // Verifica se foi digitado código
+  if(!isNaN(c)){
+    p = produtos[c];
+  }
+
+  // Se não encontrar por código, tenta pelo nome
+  if(!p && n){
+    for(let key in produtos){
+      if(produtos[key].nome.toLowerCase() === n){
+        p = produtos[key];
+        break;
+      }
+    }
+  }
+
+  // Exibe resultado
+  if(p){
+    document.getElementById("resPreco").textContent = `${p.nome} - R$ ${p.preco.toFixed(2)}`;
+  } else {
+    document.getElementById("resPreco").textContent = "Produto não encontrado!";
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Função por Partes</title>
+</head>
+<body>
+<h2>Calcular f(x)</h2>
+<label>Digite um valor para x: <input type="number" id="valor"></label>
+<button onclick="calcular()">Calcular</button>
+<pre id="saida"></pre>
+
+<script>
+function f(x){
+    if(x < -2){
+        return 2*x + 2;
+    } else if(x >= -2 && x < 3){
+        return 3;                                                                                                   (Duvida)
+    } else { // x >= 3
+        return -x;
+    }
+}
+
+function calcular(){
+    let v = parseFloat(document.getElementById("valor").value);
+    let resultado = f(v);
+    document.getElementById("saida").textContent = "f(" + v + ") = " + resultado;
+}
+</script>
+</body>
+</html>

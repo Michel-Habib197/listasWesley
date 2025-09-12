@@ -1,0 +1,23 @@
+<h2>Cálculo do IMC</h2>
+<label>Peso (kg): <input type="number" id="peso"></label><br>
+<label>Altura (m): <input type="number" id="altura" step="0.01"></label><br>
+<button onclick="imc()">Calcular</button>
+<pre id="resImc"></pre>
+
+<script>
+function imc(){
+  let p = parseFloat(document.getElementById("peso").value);
+  let a = parseFloat(document.getElementById("altura").value);
+  let imc = p/(a*a);
+  let msg = "IMC = "+imc.toFixed(2)+"\n";
+  
+  if(imc < 20) msg += "Abaixo do peso";
+  else if(imc < 25) msg += "Normal";
+  else if(imc < 30) msg += "Sobrepeso";
+  else if(imc < 35) msg += "Obesidade grau I";
+  else if(imc < 40) msg += "Obesidade grau II";
+  else msg += "Obesidade grau III";
+  
+  document.getElementById("resImc").textContent = msg;
+}
+</script>
