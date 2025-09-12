@@ -1,3 +1,5 @@
+//Funções questão 1
+
 function calcularTroco() {
   const notas = [50, 20, 10, 5, 2, 1];
 
@@ -33,3 +35,7 @@ function calcular() {
   const saida = calcularTroco(compra, pago)
   document.getElementById("saida").innerHTML = saida;
 }
+
+// ___________________________________________________________________
+
+// Funções questão 2
