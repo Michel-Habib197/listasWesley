@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disciplinas — Ciência da Computação</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0; padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+    header {
+      background: #592C82;
+      color: #fff;
+      padding: 16px;
+      text-align: center;
+      position: relative;
+    }
+    header h1 { margin: 0; }
+    header p { margin: 4px 0 0; }
+
+    .back-link {
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      background: #8e6bc7;
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .back-link:hover { background: #6b3a97; }
+
+    main {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+    }
+    .disciplina {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-bottom: 24px;
+      padding: 20px;
+    }
+    .disciplina h2 { margin-top: 0; color: #592C82; }
+    .disciplina img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 12px auto;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <a href="indexAGILES-COMPLETO.html"
+       class="back-link"
+       onclick="if (history.length > 1) { history.back(); return false; }">
+      ⬅ Voltar
+    </a>
+    <h1>Disciplinas em Destaque</h1>
+    <p>Parte do curso de Ciência da Computação</p>
+  </header>
+
+  <main>
+    <section class="disciplina">
+      <h2>Modelagem de Software</h2>
+      <p>A disciplina de <strong>Modelagem de Software</strong> aborda técnicas para representar 
+      sistemas antes de sua implementação. O foco é a utilização de diagramas, como os da UML 
+      (Unified Modeling Language), para detalhar requisitos, fluxos de dados e interações.  
+      Essa prática ajuda a reduzir erros, organizar o processo de desenvolvimento e 
+      alinhar o time de software com as necessidades do cliente.</p>
+      <img src="modelagem.gif" alt="Diagrama representando modelagem de software">
+    </section>
+
+    <section class="disciplina">
+      <h2>Inteligência Artificial</h2>
+      <p>A disciplina de <strong>Inteligência Artificial (IA)</strong> explora algoritmos e técnicas 
+      que permitem às máquinas aprender, raciocinar e tomar decisões. Entre os tópicos estudados 
+      estão redes neurais, aprendizado de máquina, processamento de linguagem natural e visão computacional.  
+      A IA é aplicada em áreas como carros autônomos, chatbots, sistemas de recomendação e muito mais.</p>
+      <img src="inteligencia-artificial-ia.webp" alt="Imagem representando inteligência artificial com interação humano-robô">
+    </section>
+  </main>
+
+</body>
+</html>

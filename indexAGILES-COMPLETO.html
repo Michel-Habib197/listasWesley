@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Banco AGILES — Simulador de Investimentos</title>
+  <meta name="description" content="Simulador didático do Banco AGILES com Poupança, CDB e LCI/LCA.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --brand: #592C82;        
+      --brand-600: #6b3a97;    
+      --brand-400: #8e6bc7;    
+      --brand-200: #c3afe5;    
+      --white: #ffffff;
+
+      --bg: #10091a;           
+      --panel: #1a1130;        
+      --soft: #231441;         
+      --text: #f5f4f8;         
+      --muted: #cfc7db;        
+      --accent: var(--brand);  
+      --accent-2: var(--brand-400); 
+      --danger: #ef4444;
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial;
+      background: radial-gradient(1200px 600px at 15% -10%, rgba(139,92,246,0.18) 0%, transparent 55%),
+                  radial-gradient(1200px 600px at 110% 10%, rgba(89,44,130,0.28) 0%, transparent 60%),
+                  var(--bg);
+      color:var(--text);
+    }
+    .container{max-width:1120px;margin:0 auto;padding:24px}
+    header{
+      display:flex; align-items:center; justify-content:space-between; gap:16px; margin:8px 0 24px;
+    }
+    .brand{display:flex; align-items:center; gap:12px}
+    .brand .logo{
+      width:44px; height:44px; border-radius:12px;
+      background: linear-gradient(135deg, var(--accent), var(--brand-600));
+      display:grid; place-items:center; font-weight:700; color:var(--white);
+      border:1px solid rgba(195,175,229,0.35); font-size:14px;
+    }
+    .brand h1{font-size: clamp(20px, 3vw, 28px); margin:0}
+    .muted{color:var(--muted)}
+    .row{display:grid; grid-template-columns: 1.1fr 0.9fr; gap:24px}
+    @media (max-width: 900px){.row{grid-template-columns:1fr}}
+
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0));
+      border:1px solid rgba(195,175,229,0.25); border-radius:var(--radius); padding:20px; 
+      backdrop-filter: blur(6px); box-shadow: 0 8px 20px rgba(0,0,0,0.35)}
+    .card h2{margin:0 0 12px; font-size:clamp(18px,2.6vw,24px)}
+    .card p{line-height:1.6}
+
+    .hero{display:grid; grid-template-columns:1.2fr 0.8fr; gap:20px; align-items:center;
+      background:linear-gradient(180deg, #120a24, var(--panel));
+      border:1px solid rgba(195,175,229,0.28); border-radius:var(--radius); padding:24px;}
+    .hero h2{font-size: clamp(22px, 3.2vw, 36px); margin:0 0 12px}
+    .hero figure{margin:0; display:flex; align-items:center; justify-content:center}
+    .hero img{max-width:100%; height:auto; border-radius:16px; border:1px solid rgba(195,175,229,0.28)}
+
+    .inputs{display:grid; grid-template-columns:repeat(2,1fr); gap:12px}
+    @media (max-width: 520px){.inputs{grid-template-columns:1fr}}
+    input, select, button{
+      background:var(--soft); color:var(--text); border:1px solid rgba(195,175,229,0.35);
+      border-radius:12px; padding:12px 14px; width:100%; font: inherit;
+    }
+    button, .link-btn{
+      cursor:pointer; font-weight:600; border:0; 
+      background:linear-gradient(135deg, var(--accent), var(--brand-600));
+      color:#fff; text-decoration:none; padding:12px 14px; border-radius:12px; display:inline-block;
+    }
+    button.secondary{background:transparent; border:1px solid rgba(195,175,229,0.45)}
+    .result{display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; margin-top:12px}
+    @media (max-width: 680px){.result{grid-template-columns:1fr}}
+    .pill{padding:12px; border:1px dashed rgba(195,175,229,0.45); border-radius:12px; background:rgba(19,10,36,0.5)}
+    canvas{width:100%; max-width:100%; height:320px; background: #120a24; border-radius:16px; border:1px solid rgba(195,175,229,0.28)}
+    footer{margin:26px 0 10px; text-align:center; color:var(--muted); font-size:14px}
+    .hide{display:none}
+
+    /* contêiner do link no header */
+    .header-actions{display:flex; align-items:center; gap:12px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">AG</div>
+        <div>
+          <h1>Banco AGILES</h1>
+          <div class="muted">Simulador de Investimentos</div>
+        </div>
+      </div>
+
+      <!-- ⬇️ LINK ADICIONADO -->
+      <div class="header-actions">
+        <a class="link-btn" href="disciplinas.html" target="_blank" rel="noopener">
+          Ir para Disciplinas do Curso
+        </a>
+      </div>
+    </header>
+
+    <section class="hero" aria-labelledby="intro-title">
+      <div>
+        <h2 id="intro-title">Compare Poupança, CDB e LCI/LCA</h2>
+        <p>O Banco AGILES oferece uma visão simples para você entender como cada aplicação pode render ao longo do tempo.</p>
+      </div>
+      <figure>
+        <img alt="Montinhos de moedas e gráfico crescente" src="https://images.unsplash.com/photo-1554224154-22dec7ec8818?q=80&w=1280&auto=format&fit=crop" />
+      </figure>
+    </section>
+
+    <section class="row" style="margin-top:24px">
+      <article class="card">
+        <h2>Explicação dos investimentos</h2>
+        <p><strong>Poupança:</strong> é o investimento mais utilizado pelos brasileiros, por ser simples e acessível. No entanto, costuma render menos que as demais opções.</p>
+        <p><strong>CDB (pós-CDI e prefixado):</strong> geralmente rendem mais que a poupança, especialmente quando oferecem percentuais acima de 100% do CDI. São indicados para quem pode deixar o dinheiro aplicado por mais tempo e aceita pagar IR.</p>
+        <p><strong>LCI/LCA:</strong> têm isenção de IR para pessoa física, o que aumenta a atratividade. Normalmente exigem aportes iniciais maiores, mas podem render mais líquido que CDBs.</p>
+        <p><em>Em resumo:</em><br>
+          - Se você investe pouco por mês (ex.: até R$200), a poupança pode ser a porta de entrada.<br>
+          - Para aportes médios (R$200 a R$1000), CDBs costumam ser mais vantajosos.<br>
+          - Para quem pode investir valores mais altos regularmente, LCI/LCA são opções mais rentáveis e vantajosas no longo prazo.</p>
+      </article>
+
+      <aside class="card">
+        <h2>Simulador</h2>
+        <div class="inputs">
+          <label>Aporte inicial (R$)<input type="number" id="inicial" value="1000"></label>
+          <label>Aporte mensal (R$)<input type="number" id="mensal" value="200"></label>
+          <label>Prazo (anos)<input type="number" id="anos" value="5"></label>
+          <label>Produto
+            <select id="produto">
+              <option value="poupanca">Poupança</option>
+              <option value="cdb_cdi">CDB pós-CDI</option>
+              <option value="cdb_pref">CDB prefixado</option>
+              <option value="lci_lca">LCI/LCA</option>
+            </select>
+          </label>
+          <label data-prod="poupanca">SELIC a.a. (%)<input type="number" id="selic" value="10.50"></label>
+          <label data-prod="poupanca">TR mensal (%)<input type="number" id="trm" value="0.00"></label>
+          <label data-prod="cdb_cdi lci_lca" class="hide">% do CDI<input type="number" id="pctCDI" value="100"></label>
+          <label data-prod="cdb_cdi lci_lca" class="hide">CDI a.a. (%)<input type="number" id="cdi" value="10.40"></label>
+          <label data-prod="cdb_pref" class="hide">Taxa prefixada a.a. (%)<input type="number" id="pref" value="12.00"></label>
+        </div>
+        <div style="margin-top:10px">
+          <button id="calcular">Calcular</button>
+          <button class="secondary" id="limpar">Limpar</button>
+        </div>
+        <div class="result">
+          <div class="pill"><div class="muted">Total investido</div><strong id="investido">R$ 0,00</strong></div>
+          <div class="pill"><div class="muted">Juros ganhos</div><strong id="juros">R$ 0,00</strong></div>
+          <div class="pill"><div class="muted">Valor futuro</div><strong id="futuro">R$ 0,00</strong></div>
+        </div>
+        <canvas id="grafico"></canvas>
+      </aside>
+    </section>
+
+    <footer>
+      <small>Banco AGILES — Simulador educativo. Resultados meramente ilustrativos.</small>
+    </footer>
+  </div>
+
+  <script>
+    // Campos condicionais
+    const produtoSel = document.getElementById('produto');
+    function atualizaCampos(){
+      const p = produtoSel.value;
+      document.querySelectorAll('[data-prod]').forEach(el=>{
+        const list = el.getAttribute('data-prod').split(' ');
+        el.classList.toggle('hide', !list.includes(p));
+      });
+    }
+    produtoSel.addEventListener('change', atualizaCampos);
+
+    const BRL = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
+
+    function taxaMensal(produto){
+      if(produto === 'poupanca'){
+        const selic = Number(document.getElementById('selic').value||0);
+        const trm   = Number(document.getElementById('trm').value||0);
+        if(selic > 8.5){ return 0.005 + trm/100; }
+        else{ return (0.70 * (selic/100) / 12) + trm/100; }
+      }
+      if(produto === 'cdb_cdi' || produto === 'lci_lca'){
+        const pct = Number(document.getElementById('pctCDI').value||0);
+        const cdi = Number(document.getElementById('cdi').value||0);
+        return ((pct/100) * (cdi/100)) / 12;
+      }
+      if(produto === 'cdb_pref'){
+        const t = Number(document.getElementById('pref').value||0);
+        return (t/100)/12;
+      }
+      return 0;
+    }
+
+    function calc(){
+      const inicial = Number(document.getElementById('inicial').value||0);
+      const mensal  = Number(document.getElementById('mensal').value||0);
+      const anos    = Number(document.getElementById('anos').value||1);
+      const produto = document.getElementById('produto').value;
+
+      const i = taxaMensal(produto);
+      const n = anos * 12;
+
+      let saldo = inicial;
+      let investido = inicial;
+      const series = [{x:0,y:saldo}];
+      for(let m=1;m<=n;m++){
+        saldo = saldo * (1+i) + mensal;
+        investido += mensal;
+        if(m%12===0) series.push({x:m/12,y:saldo});
+      }
+      const juros = saldo - investido;
+      document.getElementById('investido').textContent = BRL.format(investido);
+      document.getElementById('juros').textContent     = BRL.format(juros);
+      document.getElementById('futuro').textContent    = BRL.format(saldo);
+      drawChart(series);
+    }
+
+    // Gráfico
+    const canvas = document.getElementById('grafico');
+    const ctx = canvas.getContext('2d');
+    function drawChart(points){
+      const W = canvas.clientWidth; const H = canvas.clientHeight;
+      canvas.width = W; canvas.height = H;
+      ctx.clearRect(0,0,W,H);
+      ctx.strokeStyle='#8e6bc7'; ctx.lineWidth=2;
+      ctx.beginPath();
+      points.forEach((p,i)=>{const X=(p.x/points.at(-1).x)*(W-40)+20, Y=H-((p.y/points.at(-1).y)*(H-30)); i?ctx.lineTo(X,Y):ctx.moveTo(X,Y);});
+      ctx.stroke();
+    }
+
+    document.getElementById('calcular').addEventListener('click', calc);
+    document.getElementById('limpar').addEventListener('click', ()=>{document.querySelectorAll('input').forEach(inp=>inp.value=inp.defaultValue); calc();});
+    atualizaCampos(); calc();
+  </script>
+</body>
+</html>

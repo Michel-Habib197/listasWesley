@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fábio Nacif Marques — Portfólio</title>
+  <meta name="description" content="Portfólio de Fábio Nacif Marques: experiência em análise de sistemas, requisitos, UML, desenvolvimento web e projetos acadêmicos." />
+  <meta name="author" content="Fábio Nacif Marques" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #0f1116;
+      --panel: #1a1d24;
+      --muted: #9ca3af;
+      --text: #f3f4f6;
+      --brand: #06b6d4;
+      --brand-2: #8b5cf6;
+      --border: #2d2f36;
+      --shadow: 0 8px 25px rgba(0,0,0,.5);
+      --radius: 14px;
+    }
+
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Poppins, sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    a{color:inherit;text-decoration:none}
+
+    .container{width:min(1100px, 90%);margin:0 auto}
+    .nav{position:sticky;top:0;background:rgba(26,29,36,0.85);backdrop-filter:blur(10px);box-shadow:var(--shadow);z-index:50}
+    .nav .inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
+    .brand{font-weight:700;font-size:1.2rem;color:var(--brand)}
+    .menu{display:flex;gap:18px}
+    .menu a{padding:8px 12px;border-radius:8px;color:var(--muted);transition:.3s}
+    .menu a:hover{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;box-shadow:0 0 10px var(--brand)}
+
+    .hero{padding:80px 0}
+    .hero .inner{display:flex;align-items:center;justify-content:center;gap:40px;flex-wrap:wrap}
+    .hero h1{font-size:clamp(28px,4vw,48px);margin-bottom:16px;background:linear-gradient(135deg,var(--brand),var(--brand-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .hero p{color:var(--muted);font-size:1.1rem}
+    .cta{margin-top:20px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{padding:12px 20px;border-radius:10px;border:none;cursor:pointer;font-weight:600;transition:.3s}
+    .btn.primary{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;box-shadow:0 0 10px var(--brand)}
+    .btn.primary:hover{transform:scale(1.05)}
+    .btn.secondary{background:#2d2f36;color:var(--text)}
+
+    section{padding:60px 0}
+    h2{font-size:2rem;margin-bottom:20px;color:var(--brand)}
+    .panel{background:var(--panel);padding:28px;border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--border)}
+    .list{list-style:none;padding:0;margin:0;display:grid;gap:14px}
+    .list .item{background:#151820;padding:14px;border-radius:var(--radius);border:1px solid var(--border)}
+
+    .skills{display:flex;flex-wrap:wrap;gap:10px}
+    .chip{padding:8px 14px;border-radius:999px;background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;font-size:.9rem;box-shadow:0 0 6px rgba(0,0,0,.4)}
+
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    @media(max-width:768px){.contact{grid-template-columns:1fr}}
+
+    footer{background:var(--panel);padding:30px;text-align:center;color:var(--muted);margin-top:40px;border-top:1px solid var(--border)}
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container inner">
+      <div class="brand">🌐 Fábio Nacif Marques</div>
+      <nav class="menu">
+        <a href="#sobre">Sobre</a>
+        <a href="#experiencia">Experiência</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#habilidades">Habilidades</a>
+        <a href="#educacao">Educação</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO COM FOTO -->
+  <section class="hero">
+    <div class="container inner">
+      
+      <!-- Texto -->
+      <div style="flex:1;min-width:280px">
+        <h1>Construindo soluções com foco em resultado 🚀</h1>
+        <p>Experiência em análise de sistemas, requisitos, UML, documentação e desenvolvimento web.<br> Estagiei na Unimed BH e no Banco Inter, com projetos reais e suporte a operações.</p>
+        <div class="cta">
+          <a class="btn primary" href="#contato">Falar comigo</a>
+          <a class="btn secondary" href="#projetos">Ver projetos</a>
+        </div>
+      </div>
+
+      <!-- Foto circular -->
+      <div style="flex:0.6;min-width:220px;display:flex;justify-content:center">
+        <img src="foto-curriculo.jpg" alt="Foto de Fábio Nacif Marques"
+             style="width:220px;border-radius:50%;border:3px solid var(--brand);box-shadow:var(--shadow)">
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <!-- SOBRE MIM COM FOTO -->
+    <section id="sobre">
+      <h2>Sobre mim</h2>
+      <div class="panel" style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+        <img src="foto-curriculo.jpg" alt="Foto de Fábio Nacif Marques"
+             style="width:160px;border-radius:14px;border:2px solid var(--border);box-shadow:var(--shadow)">
+        <p>Sou apaixonado por tecnologia e resolver problemas reais com software. Atuei em grandes empresas, participando desde levantamento de requisitos até desenvolvimento e suporte. Busco crescer como desenvolvedor full-stack ou analista de sistemas.</p>
+      </div>
+    </section>
+
+    <section id="experiencia">
+      <h2>Experiência</h2>
+      <ul class="list">
+        <li class="item"><strong>Unimed BH</strong> — Estágio em Análise de Sistemas (2022). Criação de UML, desenvolvimento com JavaScript/HTML, suporte em atendimento on-line, atualização da IA Laura.</li>
+        <li class="item"><strong>Banco Inter</strong> — Estágio em Requisitos (2023). Levantamento de requisitos, documentação e apoio no front-end com HTML.</li>
+      </ul>
+    </section>
+
+    <section id="projetos">
+      <h2>Projetos</h2>
+      <div class="list">
+        <div class="item"><strong>Jogo Educacional</strong> — Voltado para crianças de 5 a 8 anos.</div>
+        <div class="item"><strong>Plataforma de inclusão PCD</strong> — Focada na inserção de pessoas com deficiência no mercado de trabalho.</div>
+        <div class="item"><strong>Página de Cestas Básicas</strong> — Projeto completo (requisitos, UML e programação). <a href="https://cestabompreco.netlify.app/" target="_blank">Visitar</a></div>
+      </div>
+    </section>
+
+    <section id="habilidades">
+      <h2>Habilidades</h2>
+      <div class="skills">
+        <span class="chip">Python</span>
+        <span class="chip">Java</span>
+        <span class="chip">JavaScript</span>
+        <span class="chip">HTML</span>
+        <span class="chip">SQL</span>
+        <span class="chip">Power BI</span>
+        <span class="chip">UML</span>
+        <span class="chip">Requisitos</span>
+        <span class="chip">Documentação</span>
+      </div>
+    </section>
+
+    <section id="educacao">
+      <h2>Educação</h2>
+      <ul class="list">
+        <li class="item">Ciência da Computação — UNA (Conclusão: 2026)</li>
+        <li class="item">Técnico em Informática — Concluído em 2020</li>
+        <li class="item">Ensino Médio — Escola Estadual Flávio dos Santos (2021)</li>
+        <li class="item">Ensino Fundamental — Escola Estadual Barão de Macaúbas (2018)</li>
+      </ul>
+    </section>
+
+    <section id="contato">
+      <h2>Contato</h2>
+      <div class="contact">
+        <div class="panel">
+          <p><strong>Email:</strong> <a href="mailto:nacifbinhonacif@gmail.com">nacifbinhonacif@gmail.com</a></p>
+          <p><strong>Telefone:</strong> <a href="tel:+5531998870062">(31) 99887-0062</a></p>
+          <p><strong>Endereço:</strong> Rua Ponte Nova, 118 — Belo Horizonte (MG)</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> Fábio Nacif Marques. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
