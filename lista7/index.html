@@ -11,29 +11,29 @@
 
 <body>
     <section class="questao1">
-        <div class="Enunciado1">
+        <!-- Conferir essa questão 1 -->
+        <div class="enunciado1">
             1) Processe o troco em uma máquina que vende salgados, doces, sucos e refrigerantes. O
-                algoritmo deve calcular o menor número de notas que deve ser retornado como troco
-                para um pagamento efetuado. O algoritmo deve ler o valor da compra e o valor pago. Se
-                o valor pago for menor que o valor da compra, a máquina deve apresentar uma
-                mensagem, informando que a quantia paga é insuficiente para realizar a compra. A
-                máquina retorna apenas notas de R$ 50,00, R$ 20,00, R$ 10,00, R$ 5,00, R$ 2,00 e R$
-                1,00 como troco. OBS: algoritmo deve ser executado quantas vezes o usuário
-                determinar.
+            algoritmo deve calcular o menor número de notas que deve ser retornado como troco
+            para um pagamento efetuado. O algoritmo deve ler o valor da compra e o valor pago. Se
+            o valor pago for menor que o valor da compra, a máquina deve apresentar uma
+            mensagem, informando que a quantia paga é insuficiente para realizar a compra. A
+            máquina retorna apenas notas de R$ 50,00, R$ 20,00, R$ 10,00, R$ 5,00, R$ 2,00 e R$
+            1,00 como troco. OBS: algoritmo deve ser executado quantas vezes o usuário
+            determinar.
+            <br><br>
+            <i>Exemplo 1:
                 <br>
-                Exemplo 1:
-                <br><br>
                 Valor pago: R$ 20,00
                 <br>
                 Valor da compra: R$ 23,00
                 <br>
-                A quantia paga é insuficiente para realizar a compra!
+                A quantia paga é insuficiente para realizar a compra!</i>
         </div>
 
         <div class="resolucao1">
             <label for="valorCompra">Valor da compra(R$):</label>
             <input type="number" id="valorCompra" min="0" step="1">
-
             <label for="valorPago">Valor pago(R$):</label>
             <input type="number" id="valorPago" min="0" step="1">
 
@@ -44,19 +44,81 @@
     </section>
 
     <section class="questao2">
-        <div class="enunciado2"></div>
-        <div class="resolucao2"></div>
+        <div class="enunciado2">
+            2) Receba uma quantidade indeterminada de números informados pelo usuário a partir do
+            teclado. O algoritmo deve apresentar a média aritmética dos números informados.
+        </div>
+        <div class="resolucao2">
+            <!-- Erro na variável "input" -->
+            <button onclick="calcularMedia()">Iniciar o cálculo da média</button>
+            <div id="resultadoMedia" class="resultado"></div>
+        </div>
     </section>
 
 
     <section class="questao3">
-        <div class="enunciado3"></div>
+        <div class="enunciado3">
+            3) Receba uma quantidade indeterminada de números informados pelo usuário a partir do
+            teclado. O algoritmo deve apresentar o maior número informado.
+        </div>
         <div class="resolucao3"></div>
     </section>
 
 
     <section class="questao4">
         <div class="enunciado4">
+            4) Resolva uma equação de segundo grau, realizando consistências dos valores dos
+            coeficientes (“a”, “b” e “c”) e do discriminante (delta), conforme descrito abaixo.
+            <br><br>
+            a. Se os coeficientes “a”, “b” e “c” forem iguais a zero, apresentar a mensagem
+            "Igualdade confirmada: 0 = 0".
+            <br>
+            b. Se os coeficientes “a” e “b” forem iguais a zero e o coeficiente “c” for
+            diferente de zero, apresentar a mensagem “Coeficientes informados
+            incorretamente”.
+            <br>
+            c. Caso o coeficiente “a” seja igual a zero e o coeficiente “b” for diferente de
+            zero, deverá ser impressa a mensagem: “Esta é uma equação de primeiro
+            grau” e deverá ser apresentado o valor da raiz real da equação (x = -c / b).
+            <br>
+            d. Caso o coeficiente “a” seja diferente de zero:
+            <br>
+            <div style="margin-left: 1rem;">
+                i. Deverá ser impressa a mensagem: “Esta é uma equação de segundo
+                grau”.
+                <br>
+                ii. Caso o discriminante seja negativo, deverá ser impressa a mensagem:
+                “Esta equação não possui raízes reais”.
+                <br>
+                iii. Caso o discriminante seja zero, apresentar a mensagem “Esta equação
+                possui duas raízes reais iguais”. Em seguida, apresentar o valor das
+                raízes da equação (x = -b / (2 * a)).
+                <br>
+                iv. Caso o discriminante seja maior que zero, apresentar a mensagem
+                “Esta equação possui duas raízes reais diferentes”. Em seguida,
+                apresentar o valor das raízes da equação.
+                Equação do segundo grau: ax2 + bx + c = 0
+                <br>
+                Discriminante:  = b2 – 4ac
+            </div>
+            <br>
+            Avalia sua implementação segundo os casos de teste abaixo:
+            <br>
+            <div style="margin-left: 1rem;">
+                a = 0, b = 0 e c = 0 -> "Igualdade confirmada: 0 = 0"
+                <br>
+                a = 0, b = 0 e c = 8 -> “Coeficientes informados incorretamente”
+                <br>
+                a = 0, b = 2 e c = -8 -> “Esta é uma equação de primeiro grau: x = 4”
+                <br>
+                a = 10, b = -4 e c = 12 -> “Esta é uma equação de segundo grau. Esta equação não possui raízes reais (delta < 0): delta=-464” 
+                <br>
+                a=4, b=-4 e c=1 -> “Esta é uma equação de segundo grau. Esta equação possui duas raízes reais iguais: x' = x'' = 0.5”
+                <br>
+                a = 1, b = 6 e c = 7 -> “Esta é uma equação de segundo grau. Esta equação possui duas raízes reais diferentes: delta = 8, x' = -1.59, x'' = -4.41”
+                <br>
+            </div>
+            <br>
         </div>
         <div class="resolucao4">
             <div class="resolucao4a"></div>

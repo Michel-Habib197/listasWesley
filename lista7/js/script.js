@@ -39,3 +39,47 @@ function calcular() {
 // ___________________________________________________________________
 
 // Funções questão 2
+
+function calcularMedia() {
+  const resultadoMedia = document.getElementById("resultadoMedia");
+  resultadoMedia.innerHTML = "Digite os numeros (digite 'fim' para finalizar):";
+  let numeros = []
+  function receberNumero() {
+    const input = prompt("Digite um numero( Ou 'fim' para finalizar)");
+    if (input === null || input.toLowerCase() === 'fim') {
+      if (numeros.length === 0){
+        resultadoMedia.innerHTML = "Nenhum numero foi infomado.";
+        return;
+      }
+
+      const soma = numeros.reduce((acc, num) => acc+num, 0);
+      const media = soma/numeros.length;
+
+      resultadoMedia.innerHTML = `
+      <p>Números informados: ${numeros.join(', ')}</p>
+      <p>Quantidade de números: ${numeros.length}</p>
+      <p>Soma dos números: ${soma}</p>
+      <p><strong>Média aritimética: ${media.toFixed(2)}</strong></p>
+      `;
+    }
+    return;
+  }
+  const numero = parseFloat(input);
+  if(isNaN(numero)){
+    alert("Por favor, digite um numero valido");
+    receberNumero();
+  }else{
+    numeros.push(numero);
+    receberNumero();
+  }
+  receberNumero();
+}
+
+// ___________________________________________________________________
+
+// Funções questão 3
+
+function calcularMaiorNumero(){
+  
+}
+
