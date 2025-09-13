@@ -47,13 +47,13 @@ function calcularMedia() {
   function receberNumero() {
     const input = prompt("Digite um numero( Ou 'fim' para finalizar)");
     if (input === null || input.toLowerCase() === 'fim') {
-      if (numeros.length === 0){
+      if (numeros.length === 0) {
         resultadoMedia.innerHTML = "Nenhum numero foi infomado.";
         return;
       }
 
-      const soma = numeros.reduce((acc, num) => acc+num, 0);
-      const media = soma/numeros.length;
+      const soma = numeros.reduce((acc, num) => acc + num, 0);
+      const media = soma / numeros.length;
 
       resultadoMedia.innerHTML = `
       <p>Números informados: ${numeros.join(', ')}</p>
@@ -65,10 +65,10 @@ function calcularMedia() {
     return;
   }
   const numero = parseFloat(input);
-  if(isNaN(numero)){
+  if (isNaN(numero)) {
     alert("Por favor, digite um numero valido");
     receberNumero();
-  }else{
+  } else {
     numeros.push(numero);
     receberNumero();
   }
@@ -79,7 +79,39 @@ function calcularMedia() {
 
 // Funções questão 3
 
-function calcularMaiorNumero(){
-  
+function calcularMaiorNumero() {
+  const maiorNumero = document.getElementById("maiorNumero");
+  maiorNumero.innerHTML = "Digite os numeros (digite 'fim' para finalizar)"
+
+  let numeros = []
+
+  function receberNumero() {
+    const input = prompt("Digite um numero (ou 'fim' para finalizar)");
+    if (input === null || input.toLowerCase() === 'fim') {
+      if (numeros.length === 0) {
+        maiorNumero.innerHTML("Nenhum numero foi informado");
+        return;
+      }
+      const maior = Math.max(...numeros);
+
+      maiorNumero.innerHTML = `
+        <p>Números informados: ${numeros.join(', ')}</p>
+        <p>Quantidade de números: ${numeros.length}</p>
+        <p><strong>Maior número: ${maior}</strong></p>
+        `;
+      return;
+    }
+
+    const numero = parseFloat(input);
+    if (isNaN(numero)) {
+      alert("Por favor, digite um número válido.");
+      receberNumero();
+    } else {
+      numeros.push(numero);
+      receberNumero();
+    }
+
+  }
+  receberNumero();
 }
 
