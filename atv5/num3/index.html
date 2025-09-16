@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UNA Aimorés - Receitas</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fdfaf6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #e85a4f; 
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.8rem;
+            font-weight: bold;
+        }
+
+        main {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            background-color: #3a3a3a;
+            color: #f0f0f0;
+            font-size: 0.9rem;
+        }
+        
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .recipe-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .recipe-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .recipe-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 3px solid #e85a4f;
+        }
+
+        .recipe-card h3 {
+            text-align: center;
+            padding: 1rem 1.5rem;
+            margin: 0;
+            font-size: 1.2rem;
+            color: #3a3a3a;
+        }
+
+        .recipe-details {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .recipe-image-large {
+            width: 100%;
+            max-height: 450px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .recipe-details h2 {
+            font-size: 2rem;
+            color: #e85a4f;
+            border-bottom: 2px solid #e85a4f;
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .ingredients ul, .instructions ol {
+            padding-left: 20px;
+        }
+
+        .ingredients ul li, .instructions ol li {
+            margin-bottom: 0.8rem;
+        }
+
+        .nav-link {
+            display: inline-block;
+            margin-top: 2rem;
+            padding: 12px 24px;
+            background-color: #e85a4f;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .nav-link:hover {
+            background-color: #d14f44;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>UNA Aimorés - Receitas</h1>
+        <p>As melhores receitas!</p>
+    </header>
+
+    <main>
+        <section id="home" class="page active">
+            <div class="recipe-gallery">
+                <a class="recipe-card nav-link" data-page="pao-de-queijo">
+                    <img src=".\Pao-de-queijo-Essa-Receita-Funciona-9.jpg" alt="Pão de Queijo Mineiro">
+                    <h3>Pão de Queijo Mineiro</h3>
+                </a>
+                <a class="recipe-card nav-link" data-page="brigadeiro">
+                    <img src=".\brigadeiro-recipe-s.jpg" alt="Brigadeiro Cremoso">
+                    <h3>Brigadeiro Cremoso</h3>
+                </a>
+                <a class="recipe-card nav-link" data-page="feijoada">
+                    <img src=".\bk-9097-39-panelinha-12-02-200635.webp" alt="Feijoada Completa">
+                    <h3>Feijoada Completa</h3>
+                </a>
+            </div>
+        </section>
+
+        <section id="pao-de-queijo" class="page">
+            <div class="recipe-details">
+                <img src=".\Pao-de-queijo-Essa-Receita-Funciona-9.jpg" alt="Pão de Queijo Mineiro" class="recipe-image-large">
+                <section class="ingredients">
+                    <h2>Ingredientes</h2>
+                    <ul>
+                        <li>500g de polvilho azedo</li>
+                        <li>1 xícara (chá) de leite</li>
+                        <li>1/2 xícara (chá) de água</li>
+                        <li>1/2 xícara (chá) de óleo</li>
+                        <li>2 ovos</li>
+                        <li>250g de queijo minas padrão ralado</li>
+                        <li>Sal a gosto</li>
+                    </ul>
+                </section>
+                <section class="instructions">
+                    <h2>Modo de Preparo</h2>
+                    <ol>
+                        <li>Em uma panela, ferva o leite, a água, o óleo e o sal.</li>
+                        <li>Despeje a mistura fervente sobre o polvilho em uma tigela grande e misture bem. Deixe amornar.</li>
+                        <li>Adicione os ovos, um de cada vez, misturando bem a massa após cada adição.</li>
+                        <li>Acrescente o queijo ralado e amasse com as mãos até obter uma massa homogênea.</li>
+                        <li>Faça pequenas bolinhas e coloque-as em uma assadeira, deixando espaço entre elas.</li>
+                        <li>Leve ao forno preaquecido a 180°C por cerca de 30 minutos, ou até dourarem.</li>
+                    </ol>
+                </section>
+                <a class="nav-link" data-page="home">← Voltar para a Home</a>
+            </div>
+        </section>
+
+        <section id="brigadeiro" class="page">
+            <div class="recipe-details">
+                <img src=".\brigadeiro-recipe-s.jpg" alt="Brigadeiro Cremoso" class="recipe-image-large">
+                <section class="ingredients">
+                    <h2>Ingredientes</h2>
+                    <ul>
+                        <li>1 lata de leite condensado</li>
+                        <li>4 colheres (sopa) de chocolate em pó</li>
+                        <li>1 colher (sopa) de manteiga sem sal</li>
+                        <li>Chocolate granulado para confeitar</li>
+                    </ul>
+                </section>
+                <section class="instructions">
+                    <h2>Modo de Preparo</h2>
+                    <ol>
+                        <li>Em uma panela, coloque o leite condensado, o chocolate em pó e a manteiga.</li>
+                        <li>Leve ao fogo baixo, mexendo sempre, até a mistura desgrudar do fundo da panela (ponto de brigadeiro).</li>
+                        <li>Despeje em um prato untado e deixe esfriar completamente.</li>
+                        <li>Com as mãos untadas, faça bolinhas e passe-as no chocolate granulado.</li>
+                        <li>Coloque em forminhas de papel e sirva.</li>
+                    </ol>
+                </section>
+                <a class="nav-link" data-page="home">← Voltar para a Home</a>
+            </div>
+        </section>
+
+        <section id="feijoada" class="page">
+            <div class="recipe-details">
+                <img src=".\bk-9097-39-panelinha-12-02-200635.webp" alt="Feijoada Completa" class="recipe-image-large">
+                <section class="ingredients">
+                    <h2>Ingredientes</h2>
+                    <ul>
+                        <li>1 kg de feijão preto</li>
+                        <li>200g de carne seca</li>
+                        <li>200g de costelinha de porco</li>
+                        <li>1 linguiça paio em rodelas</li>
+                        <li>1 linguiça calabresa em rodelas</li>
+                        <li>2 folhas de louro</li>
+                        <li>1 cebola grande picada</li>
+                        <li>4 dentes de alho picados</li>
+                        <li>Sal e pimenta-do-reino a gosto</li>
+                    </ul>
+                </section>
+                <section class="instructions">
+                    <h2>Modo de Preparo</h2>
+                    <ol>
+                        <li>Deixe o feijão e as carnes salgadas de molho de um dia para o outro, trocando a água das carnes.</li>
+                        <li>Cozinhe o feijão em uma panela de pressão com as folhas de louro.</li>
+                        <li>Em outra panela, cozinhe as carnes até ficarem macias.</li>
+                        <li>Junte as carnes cozidas ao feijão e cozinhe em fogo baixo para apurar o sabor.</li>
+                        <li>Faça um refogado com a cebola e o alho e adicione à feijoada.</li>
+                        <li>Ajuste o sal e a pimenta e sirva com arroz, couve, farofa e laranja.</li>
+                    </ol>
+                </section>
+                <a class="nav-link" data-page="home">← Voltar para a Home</a>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const pages = document.querySelectorAll('.page');
+            const navLinks = document.querySelectorAll('.nav-link');
+            function showPage(pageId) {
+                pages.forEach(page => {
+                    page.classList.remove('active');
+                });
+
+                const activePage = document.getElementById(pageId);
+                if (activePage) {
+                    activePage.classList.add('active');
+                    window.scrollTo(0, 0);
+                }
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault(); 
+                    
+                    const pageId = this.dataset.page;
+                    
+                    if (pageId) {
+                        showPage(pageId);
+                    }
+                });
+            });
+
+            showPage('home');
+        });
+    </script>
+</body>
+</html>

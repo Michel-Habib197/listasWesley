@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apresentação de Currículo</title>
+    <style>
+        body {
+            background-color: #f7fafc;
+            padding: 1rem;
+            font-family: sans-serif;
+        }
+        .container-principal {
+            width: 100%;
+            max-width: 56rem;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 2.5rem;
+        }
+        .form-container {
+            background-color: #ffffff;
+            padding: 2rem;
+            border-radius: 0.25rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            width: 100%;
+            max-width: 24rem; /* 384px */
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .form-titulo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            color: #2d3748;
+            margin-bottom: 1.5rem;
+        }
+        .form-grupo {
+            margin-bottom: 1rem;
+        }
+        .form-label {
+            display: block;
+            margin-bottom: 0.25rem;
+            font-size: 0.875rem;
+            color: #718096;
+        }
+        .form-input {
+            width: 100%;
+            padding: 0.5rem;
+            border-width: 1px;
+            border-color: #e2e8f0;
+            border-radius: 0.25rem;
+        }
+        .btn {
+            width: 100%;
+            background-color: #4299e1;
+            color: #ffffff;
+            font-weight: 700;
+            padding-top: 0.5rem;
+            padding-bottom: 0.5rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            border-radius: 0.25rem;
+        }
+        .form-link-container {
+            text-align: center;
+            font-size: 0.875rem;
+            color: #718096;
+            margin-top: 1rem;
+        }
+        .link {
+            color: #4299e1;
+        }
+        .curriculo-container {
+            background-color: #ffffff;
+            border-radius: 0.25rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+        }
+        .curriculo-header {
+            background-color: #4a5568;
+            color: #ffffff;
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        .foto-perfil {
+            width: 6rem; 
+            height: 6rem; 
+            border-radius: 9999px;
+            border-width: 2px;
+            border-color: #90cdf4;
+            margin-right: 1.5rem;
+        }
+        .curriculo-nome {
+            font-size: 1.875rem;
+            font-weight: 700;
+        }
+        .curriculo-info-pessoal {
+            color: #e2e8f0;
+            margin-top: 0.25rem;
+        }
+        .curriculo-profissao {
+            color: #90cdf4;
+            margin-top: 0.25rem;
+        }
+        .curriculo-corpo {
+            padding: 2rem;
+        }
+        .secao {
+            margin-bottom: 1.5rem;
+        }
+        .secao-titulo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 0.5rem;
+        }
+        .texto-cinza {
+            color: #4a5568;
+        }
+        .lista-experiencia {
+            list-style-type: decimal;
+            list-style-position: inside;
+        }
+        .experiencia-titulo {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1a202c;
+            display: inline;
+        }
+        .experiencia-info {
+            font-size: 0.875rem;
+            color: #a0aec0;
+        }
+        .experiencia-descricao {
+            font-size: 1rem;
+            color: #718096;
+            margin-top: 0.25rem;
+        }
+        .curriculo-rodape {
+            text-align: center;
+            padding: 1rem;
+            background-color: #f7fafc;
+            border-top-width: 1px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4">
+
+    <div class="container-principal">
+        <div id="login-page">
+            <div class="form-container">
+                <h2 class="form-titulo">Login</h2>
+                <form id="loginForm">
+                    <div class="form-grupo">
+                        <label for="login-email" class="form-label">E-mail</label>
+                        <input type="email" id="login-email" name="email" class="form-input" placeholder="seu.email@exemplo.com" required>
+                    </div>
+                    <div class="form-grupo" style="margin-bottom: 1.25rem;">
+                        <label for="login-senha" class="form-label">Senha</label>
+                        <input type="password" id="login-senha" name="senha" class="form-input" placeholder="••••••••" required>
+                    </div>
+                    <button type="submit" class="btn">Entrar</button>
+                    <p class="form-link-container">
+                        Não tem uma conta? <a href="#" onclick="mostrarSecao('cadastro-page')" class="link">Cadastre-se</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+
+        <div id="cadastro-page" class="hidden">
+            <div class="form-container">
+                <h2 class="form-titulo">Cadastro</h2>
+                <form id="cadastroForm">
+                    <div class="form-grupo">
+                        <label for="cadastro-nome" class="form-label">Nome Completo</label>
+                        <input type="text" id="cadastro-nome" class="form-input" required>
+                    </div>
+                    <div class="form-grupo">
+                        <label for="cadastro-nascimento" class="form-label">Data de Nascimento</label>
+                        <input type="date" id="cadastro-nascimento" class="form-input" required>
+                    </div>
+                    <div class="form-grupo">
+                        <label for="cadastro-email" class="form-label">E-mail</label>
+                        <input type="email" id="cadastro-email" class="form-input" required>
+                    </div>
+                    <div class="form-grupo">
+                        <label for="cadastro-senha" class="form-label">Senha</label>
+                        <input type="password" id="cadastro-senha" class="form-input" required>
+                    </div>
+                    <div class="form-grupo" style="margin-bottom: 1.25rem;">
+                        <label for="cadastro-confirma-senha" class="form-label">Confirmação de Senha</label>
+                        <input type="password" id="cadastro-confirma-senha" class="form-input" required>
+                    </div>
+                    <button type="submit" class="btn">Cadastrar</button>
+                    <p class="form-link-container">
+                        Já tem uma conta? <a href="#" onclick="mostrarSecao('login-page')" class="link">Faça login</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+
+        <div id="curriculo-page" class="hidden">
+            <div class="curriculo-container">
+                <header class="curriculo-header">
+                    <img src="https://placehold.co/150x150/EFEFEF/3A3A3A?text=Foto" alt="Foto de Perfil" class="foto-perfil">
+                    <div>
+                        <h1 class="curriculo-nome">Gabriel Cruz Hirle</h1>
+                        <p class="curriculo-info-pessoal"><strong>Data de Nascimento:</strong> 08/04/2004</p>
+                        <p class="curriculo-profissao">Desenvolvedor back-end e projetista de sistemas de controle.</p>
+                    </div>
+                </header>
+
+                <main class="curriculo-corpo">
+                    <section class="secao">
+                        <h2 class="secao-titulo">Escolaridade</h2>
+                        <p class="texto-cinza">Bacharelando em Ciência da Computação - UNA | 2022 - 2026</p>
+                    </section>
+
+                    <section>
+                        <h2 class="secao-titulo">Experiências Profissionais</h2>
+                        <ol class="lista-experiencia">
+                            <li>
+                                <h3 class="experiencia-titulo">Estagiário Sistemas de Controle</h3>
+                                <p class="experiencia-info">IHM | 2024 - NOW</p>
+                                <p class="experiencia-descricao">Supervisão de sistemas de automação com Inductive Ignition, soluções de problemas em C# e python.</p>
+                            </li>
+                        </ol>
+                    </section>
+                </main>
+
+                <footer class="curriculo-rodape">
+                     <a href="#" onclick="mostrarSecao('login-page')" class="link">Voltar para a página de Login</a>
+                </footer>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const secoes = {
+            'login-page': document.getElementById('login-page'),
+            'cadastro-page': document.getElementById('cadastro-page'),
+            'curriculo-page': document.getElementById('curriculo-page')
+        };
+        const formLogin = document.getElementById('loginForm');
+        const formCadastro = document.getElementById('cadastroForm');
+
+        function mostrarSecao(idDaSecao) {
+            for (let id in secoes) {
+                secoes[id].classList.add('hidden');
+            }
+            if (secoes[idDaSecao]) {
+                secoes[idDaSecao].classList.remove('hidden');
+            }
+        }
+
+        formLogin.addEventListener('submit', function(event) {
+            event.preventDefault();
+            mostrarSecao('curriculo-page');
+        });
+
+        formCadastro.addEventListener('submit', function(event) {
+            event.preventDefault(); 
+
+            const senha = document.getElementById('cadastro-senha').value;
+            const confirmaSenha = document.getElementById('cadastro-confirma-senha').value;
+
+            if (senha !== confirmaSenha) {
+                alert('As senhas não coincidem. Por favor, tente novamente.');
+            }
+
+            mostrarSecao('curriculo-page');
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            mostrarSecao('login-page');
+        });
+    </script>
+</body>
+</html>
+

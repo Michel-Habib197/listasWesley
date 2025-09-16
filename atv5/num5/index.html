@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Exercício 5 - Formulário</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .form-container {
+            background-color: #dcdcdc;
+            padding: 20px;
+            border: 1px solid #a0a0a0;
+            box-shadow: 2px 2px 5px #b0b0b0;
+            width: 350px;
+        }
+
+        .form-table {
+            width: 100%;
+            border-spacing: 5px;
+        }
+        
+        .label-cell {
+            text-align: left;
+            vertical-align: middle;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="password"],
+        input[type="date"],
+        select {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .button-container {
+            padding-left: 0; 
+            padding-top: 10px;
+        }
+        
+        button {
+            padding: 5px 10px;
+            border: 1px solid #888;
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+
+        .interests-cell {
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <form id="meuFormulario" onsubmit="return validarFormulario()">
+            <table class="form-table">
+                <tr>
+                    <td class="label-cell">Login:</td>
+                    <td><input type="text" id="login"></td>
+                </tr>
+                <tr>
+                    <td class="label-cell">E-mail:</td>
+                    <td><input type="email" id="email"></td>
+                </tr>
+                <tr>
+                    <td class="label-cell">Data de nascimento:</td>
+                    <td><input type="date" id="data_nascimento"></td>
+                </tr>
+                <tr>
+                    <td class="label-cell">Senha:</td>
+                    <td><input type="password" id="senha"></td>
+                </tr>
+                <tr>
+                    <td class="label-cell">Confirmar senha:</td>
+                    <td><input type="password" id="confirmar_senha"></td>
+                </tr>
+                <tr>
+                    <td class="label-cell">Sexo:</td>
+                    <td>
+                        <select id="sexo">
+                            <option value="">Selecione</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="feminino">Feminino</option>
+                            <option value="outro">Outro</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="label-cell">Cidade:</td>
+                    <td><input type="text" id="cidade"></td>
+                </tr>
+                <tr>
+                    <td class="label-cell">Home-Page:</td>
+                    <td><input type="text" id="homepage" value="http://"></td>
+                </tr>
+                <tr>
+                    <td class="label-cell">Interesses:</td>
+                    <td class="interests-cell">
+                        <input type="checkbox" id="musica" name="interesses" value="musica"> Música
+                        <input type="checkbox" id="esporte" name="interesses" value="esporte"> Esporte
+                        <input type="checkbox" id="moda" name="interesses" value="moda"> Moda
+                    </td>
+                </tr>
+            </table>
+
+            <div class="button-container">
+                <button type="reset">Limpar</button>
+                <button type="submit">Cadastrar</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        function validarFormulario() {
+            var login = document.getElementById("login").value;
+            var email = document.getElementById("email").value;
+            var dataNascimento = document.getElementById("data_nascimento").value;
+            var senha = document.getElementById("senha").value;
+            var confirmarSenha = document.getElementById("confirmar_senha").value;
+            var sexo = document.getElementById("sexo").value;
+            var cidade = document.getElementById("cidade").value;
+
+            if (login == "" || email == "" || dataNascimento == "" || senha == "" || confirmarSenha == "" || sexo == "" || cidade == "") {
+                alert("Por favor, preencha todos os campos.");
+                return false;
+            }
+
+            if (senha != confirmarSenha) {
+                alert("As senhas não conferem. Por favor, tente novamente.");
+                return false;
+            }
+
+            alert("Cadastro realizado com sucesso!");
+
+            return false;
+        }
+    </script>
+
+</body>
+</html>
+
