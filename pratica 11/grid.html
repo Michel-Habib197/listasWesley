@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light"> <!-- data-theme controla qual conjunto de variáveis CSS (claro/escuro) será aplicado -->
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Prática de CSS Grid — 3 exercícios</title>
+  <meta name="description" content="Três exercícios práticos com CSS Grid: layout 3x2, galeria de imagens e telas de login/cadastro, com HTML, CSS e JS." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ==============================
+       Tema: Claro (padrão)
+       Ponto-chave: variáveis CSS centralizam paleta; trocar tema = trocar valores aqui.
+       ============================== */
+    :root{
+      --bg:#f6f7fb;          /* fundo geral */
+      --panel:#ffffff;       /* cartões e painéis */
+      --soft:#eef2f7;        /* superfícies suaves */
+      --muted:#475569;       /* texto secundário */
+      --text:#0f172a;        /* texto principal */
+      --line:#d9e1ea;        /* bordas */
+      --brand:#7c3aed;       /* cor de destaque */
+      --brand-2:#f59e0b;     /* cor de ação alternativa */
+      --danger:#dc2626;      /* mensagens de erro */
+      --card-grad-1:#ffffff; /* gradientes de cartões */
+      --card-grad-2:#fbfdff;
+      --cell-grad-1:#ffffff; /* gradientes das células do grid */
+      --cell-grad-2:#f3f6fb;
+      --overlay: rgba(0,0,0,.35); /* sobreposição de legenda na galeria */
+      --shadow: 0 8px 24px rgba(15,23,42,.06); /* sombra padrão */
+    }
+
+    /* ==============================
+       Tema: Escuro (opcional via toggle)
+       Ponto-chave: mesmo nome de variável, novos valores.
+       ============================== */
+    :root[data-theme="dark"]{
+      --bg:#0f172a;
+      --panel:#111827;
+      --soft:#1f2937;
+      --muted:#9ca3af;
+      --text:#e5e7eb;
+      --line:#1f2a40;
+      --brand:#22c55e;
+      --brand-2:#60a5fa;
+      --danger:#ef4444;
+      --card-grad-1:#0f1b2e;
+      --card-grad-2:#0d1422;
+      --cell-grad-1:#13233a;
+      --cell-grad-2:#0e1b2e;
+      --overlay: rgba(0,0,0,.35);
+      --shadow: 0 8px 24px rgba(0,0,0,.25);
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      /* Gradiente usa variáveis do tema ativo */
+      background: radial-gradient(1200px 600px at 20% -10%, var(--soft) 0%, var(--bg) 60%);
+      color:var(--text);
+    }
+    .wrap{
+      /* Layout de página em grid: header | conteúdo | footer */
+      min-height:100vh; display:grid; grid-template-rows:auto 1fr auto; gap:24px; padding:24px; max-width:1200px; margin:0 auto;
+    }
+    header{
+      display:grid; grid-template-columns:1fr auto auto; align-items:center; gap:12px
+    }
+    .brand{font-weight:800; font-size:1.25rem; letter-spacing:.5px}
+
+    /* Toggle de tema: botão acessível e com estado visual */
+    .theme-toggle{
+      display:inline-grid; grid-auto-flow:column; align-items:center; gap:8px;
+      background:var(--panel); border:1px solid var(--line); padding:8px 12px; border-radius:12px;
+      box-shadow:var(--shadow); font-weight:600; color:var(--text);
+      cursor:pointer;
+    }
+    .theme-toggle kbd{
+      font:inherit; background:var(--soft); padding:2px 8px; border-radius:8px; border:1px solid var(--line);
+    }
+
+    nav{display:grid; grid-auto-flow:column; gap:8px}
+    button.tab{
+      /* Ponto-chave: tabs mudam aria-selected; JS alterna paineis */
+      background:var(--panel); color:var(--text); border:1px solid var(--line);
+      padding:10px 14px; border-radius:12px; cursor:pointer; font-weight:600;
+      box-shadow:var(--shadow);
+    }
+    button.tab[aria-selected="true"]{
+      border-color:var(--brand);
+      /* color-mix ajuda a dar foco sem poluir o tema */
+      outline:2px solid color-mix(in srgb, var(--brand) 35%, transparent);
+    }
+
+    /* Painéis: apenas o ativo aparece (classe .active via JS) */
+    .panel{display:none}
+    .panel.active{display:block}
+
+    /* Cartão base reutilizado nas seções */
+    .card{
+      background:linear-gradient(180deg, var(--card-grad-1), var(--card-grad-2));
+      border:1px solid var(--line); border-radius:18px; padding:18px; box-shadow:var(--shadow)
+    }
+    .card h2{margin:0 0 12px 0}
+    .hint{color:var(--muted); font-size:.95rem}
+
+    /* ============ Exercício 1: Grid 3 colunas x 2 linhas ============ */
+    .grid-demo-controls{display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:10px; margin:10px 0 18px}
+    .grid-demo-controls label{display:grid; gap:6px; font-size:.9rem}
+    .grid-demo{
+      /* Ponto-chave: definição do grid 3x2 e variáveis para interação */
+      display:grid; grid-template-columns:repeat(3, 1fr); grid-template-rows:repeat(2, 120px);
+      gap:var(--gap, 12px);                          /* espaço entre células */
+      justify-items:var(--justify-items, stretch);   /* alinhamento HORIZONTAL dos itens */
+      align-items:var(--align-items, stretch);       /* alinhamento VERTICAL dos itens */
+    }
+    .grid-demo .cell{
+      background:linear-gradient(180deg, var(--cell-grad-1), var(--cell-grad-2));
+      border:1px solid var(--line); border-radius:14px;
+      display:grid; place-items:center; font-weight:700
+    }
+    /* variação visual de itens ímpares por tema (não afeta layout) */
+    :root[data-theme="dark"] .grid-demo .cell:nth-child(odd){
+      background:linear-gradient(180deg, #182b47, #122139)
+    }
+    :root:not([data-theme="dark"]) .grid-demo .cell:nth-child(odd){
+      background:linear-gradient(180deg, #ffffff, #eef3fb)
+    }
+
+    /* Ponto-chave: self sobrescreve alinhamento global para o item */
+    .cell[data-self="start"]{justify-self:start; align-self:start}
+    .cell[data-self="center"]{justify-self:center; align-self:center}
+    .cell[data-self="end"]{justify-self:end; align-self:end}
+
+    /* ============ Exercício 2: Galeria com Grid ============ */
+    .gallery{
+      /* Ponto-chave: repeat(auto-fill, minmax()) cria grade responsiva */
+      display:grid; gap:12px;
+      grid-template-columns:repeat(auto-fill, minmax(160px, 1fr));
+      grid-auto-rows:160px; /* altura base das linhas automáticas */
+    }
+    .gallery figure{position:relative; margin:0; overflow:hidden; border-radius:14px; border:1px solid var(--line); background:var(--panel); box-shadow:var(--shadow)}
+    .gallery img{width:100%; height:100%; object-fit:cover; display:block; transition:transform .4s ease}
+    .gallery figcaption{
+      /* Ponto-chave: legenda sobreposta com fundo semi-transparente */
+      position:absolute; inset:auto 8px 8px 8px;
+      background:var(--overlay); padding:6px 10px; border-radius:10px; font-size:.85rem; color:#fff
+    }
+    .gallery figure:hover img{transform:scale(1.06)} /* efeito simples de hover */
+
+    /* ============ Exercício 3: Login & Cadastro com Grid ============ */
+    .auth{display:grid; gap:16px}
+    .auth .split{display:grid; grid-template-columns:1fr; gap:16px}
+    @media(min-width:900px){ .auth .split{ grid-template-columns:1fr 1fr } } /* responsivo: 2 colunas no desktop */
+
+    .form{
+      display:grid; gap:14px; border:1px solid var(--line); border-radius:16px; padding:18px;
+      background:linear-gradient(180deg, var(--card-grad-1), var(--card-grad-2));
+      box-shadow:var(--shadow);
+    }
+    .form h3{margin:0}
+
+    .form-grid{ display:grid; grid-template-columns:160px 1fr; gap:10px 14px; align-items:center } /* label fixo + campo fluido */
+    .form-grid label{ color:var(--muted) }
+    .form-grid input, .form-grid select{
+      width:100%; padding:10px 12px; border-radius:10px;
+      border:1px solid var(--line); background:var(--panel); color:var(--text)
+    }
+
+    .actions{display:grid; grid-auto-flow:column; gap:10px; justify-content:start} /* botões lado a lado */
+    .btn{
+      background:var(--brand); color:#ffffff; border:0; padding:10px 14px; border-radius:10px; font-weight:700; cursor:pointer
+    }
+    .btn.alt{ background:var(--brand-2); color:#1f1300 }
+
+    .error{ color:var(--danger); font-size:.9rem; display:none } /* exibidas via JS */
+    .ok{ color:var(--brand); font-size:.95rem; display:none }
+
+    footer{ color:var(--muted); font-size:.9rem; text-align:center }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">CSS Grid — Exercícios Práticos</div>
+
+      <!-- Alternador de tema: também pode ser acionado pela tecla "4" -->
+      <button id="themeBtn" class="theme-toggle" type="button" aria-pressed="false" title="Alternar tema">
+        <span id="themeIcon" aria-hidden="true">🌞</span>
+        <span id="themeLabel">Claro</span>
+        <kbd>4</kbd>
+      </button>
+
+      <nav>
+        <!-- Tabs: data-tab aponta para o id da section; aria-selected auxilia acessibilidade -->
+        <button class="tab" data-tab="ex1" aria-selected="true">1) Layout 3×2</button>
+        <button class="tab" data-tab="ex2">2) Galeria</button>
+        <button class="tab" data-tab="ex3">3) Login/Cadastro</button>
+      </nav>
+    </header>
+
+    <!-- ===================== Exercício 1 ===================== -->
+    <section id="ex1" class="panel active"> <!-- .active define qual painel está visível -->
+      <article class="card">
+        <h2>Exercício 1 — Grade com 3 colunas × 2 linhas</h2>
+        <p class="hint">Use os controles para alterar o <em>gap</em> (espaçamento) e os alinhamentos globais. Alguns itens também têm alinhamento próprio (start, center, end) para demonstrar <code>justify-self</code> e <code>align-self</code>.</p>
+
+        <div class="grid-demo-controls">
+          <label>
+            Gap (px)
+            <input id="gapRange" type="range" min="0" max="40" value="12" /> <!-- range controla a variável --gap -->
+          </label>
+          <label>
+            justify-items
+            <select id="justifyItems">        <!-- alinhamento horizontal global -->
+              <option>stretch</option>
+              <option>start</option>
+              <option>center</option>
+              <option>end</option>
+            </select>
+          </label>
+          <label>
+            align-items
+            <select id="alignItems">          <!-- alinhamento vertical global -->
+              <option>stretch</option>
+              <option>start</option>
+              <option>center</option>
+              <option>end</option>
+            </select>
+          </label>
+          <label>
+            Reset
+            <button id="resetGrid" class="btn alt" type="button">Restaurar</button> <!-- volta aos valores padrão -->
+          </label>
+        </div>
+
+        <div id="gridDemo" class="grid-demo" style="--gap:12px; --justify-items:stretch; --align-items:stretch">
+          <div class="cell" data-self="start">1</div>   <!-- self sobrescreve alinhamento global -->
+          <div class="cell">2</div>
+          <div class="cell" data-self="center">3</div>
+          <div class="cell">4</div>
+          <div class="cell" data-self="end">5</div>
+          <div class="cell">6</div>
+        </div>
+      </article>
+    </section>
+
+    <!-- ===================== Exercício 2 ===================== -->
+    <section id="ex2" class="panel">
+      <article class="card">
+        <h2>Exercício 2 — Galeria de Imagens com Grid</h2>
+        <p class="hint">Grade responsiva usando <code>repeat(auto-fill, minmax(...))</code>. As imagens abaixo usam placeholders do Unsplash.</p>
+        <div class="gallery">
+          <!-- Ponto-chave: 12 figuras com figcaption sobreposto -->
+          <figure><img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800&q=80" alt="Montanhas"><figcaption>Montanhas</figcaption></figure>
+          <figure><img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?w=800&q=80" alt="Floresta"><figcaption>Floresta</figcaption></figure>
+          <figure><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=800&q=80" alt="Deserto"><figcaption>Deserto</figcaption></figure>
+          <figure><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800&q=80" alt="Mar"><figcaption>Mar</figcaption></figure>
+          <figure><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&q=80" alt="Campo"><figcaption>Campo</figcaption></figure>
+          <figure><img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=801&q=80" alt="Trilha"><figcaption>Trilha</figcaption></figure>
+          <figure><img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=801&q=80" alt="Vales"><figcaption>Vales</figcaption></figure>
+          <figure><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=801&q=80" alt="Dunas"><figcaption>Dunas</figcaption></figure>
+          <figure><img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=801&q=80" alt="Costa"><figcaption>Costa</figcaption></figure>
+          <figure><img src="https://images.unsplash.com/photo-1470770903676-69b98201ea1c?w=801&q=80" alt="Pinheiros"><figcaption>Pinheiros</figcaption></figure>
+          <figure><img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?w=800&q=80" alt="Lago"><figcaption>Lago</figcaption></figure>
+          <figure><img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=800&q=80" alt="Pico"><figcaption>Pico</figcaption></figure>
+        </div>
+      </article>
+    </section>
+
+    <!-- ===================== Exercício 3 ===================== -->
+    <section id="ex3" class="panel">
+      <article class="card auth">
+        <h2>Exercício 3 — Telas de Login e Cadastro usando Grid</h2>
+        <div class="split">
+          <!-- Login: validações simples no submit -->
+          <form id="loginForm" class="form" novalidate>
+            <h3>Login</h3>
+            <div class="form-grid">
+              <label for="loginEmail">E-mail</label>
+              <input id="loginEmail" type="email" placeholder="usuario@exemplo.com" required>
+
+              <label for="loginSenha">Senha</label>
+              <input id="loginSenha" type="password" placeholder="••••••••" minlength="6" required>
+            </div>
+            <div class="actions">
+              <button class="btn" type="submit">Entrar</button>
+              <button class="btn alt" type="button" id="fillLogin">Auto-preencher</button>
+            </div>
+            <p class="error" id="loginError">Verifique e-mail/senha.</p>
+            <p class="ok" id="loginOk">Login efetuado!</p>
+          </form>
+
+          <!-- Cadastro: salva exemplo no localStorage (simulação) -->
+          <form id="cadForm" class="form" novalidate>
+            <h3>Cadastro</h3>
+            <div class="form-grid">
+              <label for="cadNome">Nome</label>
+              <input id="cadNome" type="text" placeholder="Seu nome" required>
+
+              <label for="cadEmail">E-mail</label>
+              <input id="cadEmail" type="email" placeholder="usuario@exemplo.com" required>
+
+              <label for="cadSenha">Senha</label>
+              <input id="cadSenha" type="password" placeholder="mín. 6 caracteres" minlength="6" required>
+
+              <label for="cadPerfil">Perfil</label>
+              <select id="cadPerfil" required>
+                <option value="">Selecione…</option>
+                <option>Aluno</option>
+                <option>Professor</option>
+              </select>
+            </div>
+            <div class="actions">
+              <button class="btn" type="submit">Cadastrar</button>
+              <button class="btn alt" type="button" id="fillCad">Auto-preencher</button>
+            </div>
+            <p class="error" id="cadError">Preencha todos os campos corretamente.</p>
+            <p class="ok" id="cadOk">Cadastro realizado!</p>
+          </form>
+        </div>
+      </article>
+    </section>
+
+    <footer>Feito com HTML, CSS Grid e JS — pressione as abas para alternar entre os exercícios.</footer>
+  </div>
+
+  <script>
+    // ===== Tabs: alterna aria-selected e classe .active no painel correspondente
+    const tabs = document.querySelectorAll('button.tab');
+    const panels = document.querySelectorAll('.panel');
+    tabs.forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        tabs.forEach(t=>t.setAttribute('aria-selected','false'));
+        btn.setAttribute('aria-selected','true');
+        panels.forEach(p=>p.classList.remove('active'));
+        document.getElementById(btn.dataset.tab).classList.add('active'); // data-tab -> id da section
+      })
+    })
+
+    // ===== Exercício 1: aplica valores dos controles como variáveis CSS no grid
+    const gridDemo = document.getElementById('gridDemo');
+    const gapRange = document.getElementById('gapRange');
+    const justifyItems = document.getElementById('justifyItems');
+    const alignItems = document.getElementById('alignItems');
+    const resetGrid = document.getElementById('resetGrid');
+
+    function applyGridControls(){
+      gridDemo.style.setProperty('--gap', gapRange.value + 'px');           // controla "gap"
+      gridDemo.style.setProperty('--justify-items', justifyItems.value);    // alinhamento horizontal global
+      gridDemo.style.setProperty('--align-items', alignItems.value);        // alinhamento vertical global
+    }
+    gapRange.addEventListener('input', applyGridControls);
+    justifyItems.addEventListener('change', applyGridControls);
+    alignItems.addEventListener('change', applyGridControls);
+    resetGrid.addEventListener('click', ()=>{  // restaura padrões didáticos
+      gapRange.value = 12; justifyItems.value = 'stretch'; alignItems.value = 'stretch'; applyGridControls();
+    });
+
+    // ===== Exercício 3: validações simples (mock) + feedback visual
+    const loginForm = document.getElementById('loginForm');
+    const loginError = document.getElementById('loginError');
+    const loginOk = document.getElementById('loginOk');
+    const fillLogin = document.getElementById('fillLogin');
+
+    loginForm.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const email = document.getElementById('loginEmail').value.trim();
+      const senha = document.getElementById('loginSenha').value.trim();
+      const ok = /@/.test(email) && senha.length >= 6; // regra mínima para exemplo
+      loginError.style.display = ok ? 'none' : 'block';
+      loginOk.style.display = ok ? 'block' : 'none';
+    });
+    fillLogin.addEventListener('click',()=>{ // atalho didático
+      document.getElementById('loginEmail').value = 'teste@exemplo.com';
+      document.getElementById('loginSenha').value = 'segredo123';
+    });
+
+    const cadForm = document.getElementById('cadForm');
+    const cadError = document.getElementById('cadError');
+    const cadOk = document.getElementById('cadOk');
+    const fillCad = document.getElementById('fillCad');
+
+    cadForm.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const nome = document.getElementById('cadNome').value.trim();
+      const email = document.getElementById('cadEmail').value.trim();
+      const senha = document.getElementById('cadSenha').value.trim();
+      const perfil = document.getElementById('cadPerfil').value;
+      const ok = nome && /@/.test(email) && senha.length >= 6 && perfil; // validações mínimas
+      cadError.style.display = ok ? 'none' : 'block';
+      cadOk.style.display = ok ? 'block' : 'none';
+      if(ok){
+        // Simulação de persistência local para fins didáticos (não é backend real)
+        const users = JSON.parse(localStorage.getItem('users')||'[]');
+        users.push({nome, email, perfil});
+        localStorage.setItem('users', JSON.stringify(users));
+      }
+    });
+    fillCad.addEventListener('click',()=>{ // autopreenchimento para testes
+      document.getElementById('cadNome').value = 'Fábio Nacif';
+      document.getElementById('cadEmail').value = 'fabio@example.com';
+      document.getElementById('cadSenha').value = 'Senha123';
+      document.getElementById('cadPerfil').value = 'Professor';
+    });
+
+    // ===== Tema: alternância com persistência + preferência do sistema
+    const THEME_KEY = 'ui.theme';
+    const btn = document.getElementById('themeBtn');
+    const icon = document.getElementById('themeIcon');
+    const label = document.getElementById('themeLabel');
+
+    // Carrega: usa localStorage se existir; senão, usa prefers-color-scheme do SO
+    const saved = localStorage.getItem(THEME_KEY) ||
+      (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    setTheme(saved);
+
+    btn.addEventListener('click', toggleTheme);
+    // Atalho de teclado: tecla "4" alterna o tema (acessibilidade + usabilidade)
+    window.addEventListener('keydown', (e)=>{
+      if(e.key.toLowerCase() === '4') { toggleTheme(); }
+    });
+
+    function toggleTheme(){
+      const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      setTheme(next);
+      localStorage.setItem(THEME_KEY, next); // persistência entre visitas
+    }
+    function setTheme(mode){
+      document.documentElement.dataset.theme = mode; // troca o seletor :root[data-theme="..."]
+      const isDark = mode === 'dark';
+      btn.setAttribute('aria-pressed', String(isDark)); // estado acessível do botão
+      icon.textContent = isDark ? '🌙' : '🌞';
+      label.textContent = isDark ? 'Escuro' : 'Claro';
+    }
+  </script>
+</body>
+</html>
