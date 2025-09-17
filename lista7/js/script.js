@@ -115,3 +115,46 @@ function calcularMaiorNumero() {
   receberNumero();
 }
 
+// ___________________________________________________________________
+
+// Funções questão 4
+
+function calcularEquacao() {
+  let numA = Number(prompt("Digite o valor de A:"));
+  let numB = Number(prompt("Digite o valor de B:"));
+  let numC = Number(prompt("Digite o valor de C:"));
+
+  let resultadoDiv = document.querySelector("#resolucao4");
+  resultadoDiv.innerHTML = ""; //Apaga o resultado anterior
+
+  if (numA === 0 && numB === 0 && numC === 0) {
+    resultadoDiv.innerHTML = "Igualdade confirmada: 0 = 0";
+  }
+  else if (numA === 0 && numB === 0 && numC !== 0) {
+    resultadoDiv.innerHTML = "Coeficientes informados incorretamente";
+  }
+  else if (numA === 0 && numB !== 0) {
+    let raiz = -numC / numB;
+    resultadoDiv.innerHTML = `Esta é uma equação de primeiro grau: x = ${raiz}`;
+  }
+  else {
+    let delta = (numB * numB) - (4 * numA * numC);
+    if (delta < 0) {
+      resultadoDiv.innerHTML = `Esta é uma equação de segundo grau.<br>
+          Esta equação não possui raízes reais (delta < 0): delta = ${delta}`;
+    }
+    else if (delta === 0) {
+      let x = -numB / (2 * numA);
+      resultadoDiv.innerHTML = `Esta é uma equação de segundo grau.<br>
+          Esta equação possui duas raízes reais iguais: x' = x'' = ${x}`;
+    }
+    else {
+      let x1 = (-numB + Math.sqrt(delta)) / (2 * numA);
+      let x2 = (-numB - Math.sqrt(delta)) / (2 * numA);
+      // arredondar com 2 casas decimais
+      resultadoDiv.innerHTML = `Esta é uma equação de segundo grau.<br>
+          Esta equação possui duas raízes reais diferentes: delta = ${delta}, 
+          x' = ${x1.toFixed(2)}, x'' = ${x2.toFixed(2)}`;
+    }
+  }
+}
