@@ -32,12 +32,15 @@
         </div>
 
         <div class="resolucao1">
-            <label for="valorCompra">Valor da compra(R$):</label>
+            <label for="valorCompra">Valor da compra (R$):</label>
             <input type="number" id="valorCompra" min="0" step="1">
-            <label for="valorPago">Valor pago(R$):</label>
+            <label for="valorPago">Valor pago (R$):</label>
             <input type="number" id="valorPago" min="0" step="1">
 
             <button onclick="calcular()">Calcular Troco</button>
+            <button onclick="novoCalculo()">Novo cálculo</button>
+
+            <div id="saida"></div>
 
         </div>
 
@@ -49,8 +52,11 @@
             teclado. O algoritmo deve apresentar a média aritmética dos números informados.
         </div>
         <div class="resolucao2">
-            <!-- Erro na variável "input" -->
-            <button onclick="calcularMedia()">Iniciar o cálculo da média</button>
+            <label for="numeroInput">Digite um número:</label>
+            <input type="number" id="numeroInput">
+            <button onclick="adicionarNumero()">Adicionar</button>
+            <button onclick="finalizarCalculo()">Finalizar</button>
+
             <div id="resultadoMedia" class="resultado"></div>
         </div>
     </section>
@@ -62,7 +68,12 @@
             teclado. O algoritmo deve apresentar o maior número informado.
         </div>
         <div class="resolucao3">
-            
+            <label for="numeroInput3">Digite um número:</label>
+            <input type="number" id="numeroInput3">
+            <button onclick="adicionarNumero3()">Adicionar</button>
+            <button onclick="finalizarCalculo3()">Finalizar</button>
+
+            <div id="resultadoMaior" class="resultado"></div>
         </div>
     </section>
 
@@ -113,19 +124,28 @@
                 <br>
                 a = 0, b = 2 e c = -8 -> “Esta é uma equação de primeiro grau: x = 4”
                 <br>
-                a = 10, b = -4 e c = 12 -> “Esta é uma equação de segundo grau. Esta equação não possui raízes reais (delta < 0): delta=-464” 
-                <br>
-                a=4, b=-4 e c=1 -> “Esta é uma equação de segundo grau. Esta equação possui duas raízes reais iguais: x' = x'' = 0.5”
-                <br>
-                a = 1, b = 6 e c = 7 -> “Esta é uma equação de segundo grau. Esta equação possui duas raízes reais diferentes: delta = 8, x' = -1.59, x'' = -4.41”
-                <br>
+                a = 10, b = -4 e c = 12 -> “Esta é uma equação de segundo grau. Esta equação não possui raízes reais
+                (delta < 0): delta=-464” <br>
+                    a=4, b=-4 e c=1 -> “Esta é uma equação de segundo grau. Esta equação possui duas raízes reais
+                    iguais: x' = x'' = 0.5”
+                    <br>
+                    a = 1, b = 6 e c = 7 -> “Esta é uma equação de segundo grau. Esta equação possui duas raízes reais
+                    diferentes: delta = 8, x' = -1.59, x'' = -4.41”
+                    <br>
             </div>
             <br>
         </div>
         <div class="resolucao4">
-            <div class="resolucao4a"></div>
-            <div class="resolucao4b"></div>
-            <div class="resolucao4c"></div>
+            <div class="inputs">
+                <label for="valorA">a: </label>
+                <input type="number" id="valorA">
+                <label for="valorB">b: </label>
+                <input type="number" id="valorB">
+                <label for="valorC">c: </label>
+                <input type="number" id="valorC">
+                <button onclick="calcularEquacao()">Calcular</button>
+            </div>
+            <div id="resolucao4"></div>
         </div>
     </section>
 </body>

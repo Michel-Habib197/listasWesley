@@ -2,14 +2,14 @@
 
 function calcularTroco() {
   const notas = [50, 20, 10, 5, 2, 1];
+  let resultado = ""
 
   const valorPago = parseFloat(document.getElementById("valorPago").value);
   const valorCompra = parseFloat(document.getElementById("valorCompra").value);
 
   if (valorPago < valorCompra) {
     //a máquina deve apresentar uma mensagem, informando que a quantia paga é insuficiente para realizar a compra.
-    console.log("A quantia paga é insuficiente para realizar a compra!");
-    return;
+    return "<p>A quantia paga é insuficiente para realizar a compra!</p>";
   }
 
   let troco = valorPago - valorCompra;
@@ -24,8 +24,8 @@ function calcularTroco() {
 }
 
 function calcular() {
-  const compra = parseInt(document.getElementById("compra").value);
-  const pago = parseInt(document.getElementById("pago").value);
+  const compra = parseInt(document.getElementById("valorCompra").value);
+  const pago = parseInt(document.getElementById("valorPago").value);
 
   if (isNaN(compra) || isNaN(pago)) {
     document.getElementById("saida").innerHTML = "Preencha os dois valores!";
@@ -36,83 +36,103 @@ function calcular() {
   document.getElementById("saida").innerHTML = saida;
 }
 
-// ___________________________________________________________________
-
-// Funções questão 2
-
-function calcularMedia() {
-  const resultadoMedia = document.getElementById("resultadoMedia");
-  resultadoMedia.innerHTML = "Digite os numeros (digite 'fim' para finalizar):";
-  let numeros = []
-  function receberNumero() {
-    const input = prompt("Digite um numero( Ou 'fim' para finalizar)");
-    if (input === null || input.toLowerCase() === 'fim') {
-      if (numeros.length === 0) {
-        resultadoMedia.innerHTML = "Nenhum numero foi infomado.";
-        return;
-      }
-
-      const soma = numeros.reduce((acc, num) => acc + num, 0);
-      const media = soma / numeros.length;
-
-      resultadoMedia.innerHTML = `
-      <p>Números informados: ${numeros.join(', ')}</p>
-      <p>Quantidade de números: ${numeros.length}</p>
-      <p>Soma dos números: ${soma}</p>
-      <p><strong>Média aritimética: ${media.toFixed(2)}</strong></p>
-      `;
-    }
-    return;
-  }
-  const numero = parseFloat(input);
-  if (isNaN(numero)) {
-    alert("Por favor, digite um numero valido");
-    receberNumero();
-  } else {
-    numeros.push(numero);
-    receberNumero();
-  }
-  receberNumero();
+function novoCalculo() {
+  document.getElementById("valorCompra").value = "";
+  document.getElementById("valorPago").value = "";
+  document.getElementById("saida").innerHTML = "";
 }
 
 // ___________________________________________________________________
 
-// Funções questão 3
+// Funções questão 2
 
-function calcularMaiorNumero() {
-  const maiorNumero = document.getElementById("maiorNumero");
-  maiorNumero.innerHTML = "Digite os numeros (digite 'fim' para finalizar)"
+let numeros = [];
 
-  let numeros = []
+function adicionarNumero() {
+  const input = document.getElementById("numeroInput");
+  const valor = parseFloat(input.value);
 
-  function receberNumero() {
-    const input = prompt("Digite um numero (ou 'fim' para finalizar)");
-    if (input === null || input.toLowerCase() === 'fim') {
-      if (numeros.length === 0) {
-        maiorNumero.innerHTML("Nenhum numero foi informado");
-        return;
-      }
-      const maior = Math.max(...numeros);
-
-      maiorNumero.innerHTML = `
-        <p>Números informados: ${numeros.join(', ')}</p>
-        <p>Quantidade de números: ${numeros.length}</p>
-        <p><strong>Maior número: ${maior}</strong></p>
-        `;
-      return;
-    }
-
-    const numero = parseFloat(input);
-    if (isNaN(numero)) {
-      alert("Por favor, digite um número válido.");
-      receberNumero();
-    } else {
-      numeros.push(numero);
-      receberNumero();
-    }
-
+  if (isNaN(valor)) {
+    alert("Por favor, digite um número válido!");
+  } else {
+    numeros.push(valor);
+    document.getElementById("resultadoMedia").innerHTML =
+      `<p>Números informados até agora: ${numeros.join(', ')}</p>`;
   }
-  receberNumero();
+
+  input.value = "";
+  input.focus();
+}
+
+function finalizarCalculo() {
+  const resultadoMedia = document.getElementById("resultadoMedia");
+
+  if (numeros.length === 0) {
+    resultadoMedia.innerHTML = "Nenhum número foi informado.";
+    return;
+  }
+
+  const soma = numeros.reduce((acc, num) => acc + num, 0);
+  const media = soma / numeros.length;
+
+  resultadoMedia.innerHTML = `
+      <p>Números informados: ${numeros.join(', ')}</p>
+      <p>Quantidade de números: ${numeros.length}</p>
+      <p>Soma dos números: ${soma}</p>
+      <p><strong>Média aritmética: ${media.toFixed(2)}</strong></p>
+      <button onclick="novoCalculo()">Novo cálculo</button>
+    `;
+}
+function novoCalculo() {
+  numeros = [];
+  document.getElementById("resultadoMedia").innerHTML = "";
+  document.getElementById("numeroInput").value = "";
+  document.getElementById("numeroInput").focus();
+}
+// ___________________________________________________________________
+
+// Funções questão 3
+let numeros3 = [];
+
+function adicionarNumero3() {
+  const input = document.getElementById("numeroInput3");
+  const valor = parseFloat(input.value);
+
+  if (isNaN(valor)) {
+    alert("Por favor, digite um número válido!");
+  } else {
+    numeros3.push(valor);
+    document.getElementById("resultadoMaior").innerHTML =
+      `<p>Números informados até agora: ${numeros3.join(', ')}</p>`;
+  }
+
+  input.value = "";
+  input.focus();
+}
+
+function finalizarCalculo3() {
+  const resultadoMaior = document.getElementById("resultadoMaior");
+
+  if (numeros3.length === 0) {
+    resultadoMaior.innerHTML = "Nenhum número foi informado.";
+    return;
+  }
+
+  const maior = Math.max(...numeros3);
+
+  resultadoMaior.innerHTML = `
+      <p>Números informados: ${numeros3.join(', ')}</p>
+      <p>Quantidade de números: ${numeros3.length}</p>
+      <p><strong>Maior número: ${maior}</strong></p>
+      <button onclick="novoCalculo3()">Novo cálculo</button>
+    `;
+}
+
+function novoCalculo3() {
+  numeros3 = [];
+  document.getElementById("resultadoMaior").innerHTML = "";
+  document.getElementById("numeroInput3").value = "";
+  document.getElementById("numeroInput3").focus();
 }
 
 // ___________________________________________________________________
@@ -120,9 +140,9 @@ function calcularMaiorNumero() {
 // Funções questão 4
 
 function calcularEquacao() {
-  let numA = Number(prompt("Digite o valor de A:"));
-  let numB = Number(prompt("Digite o valor de B:"));
-  let numC = Number(prompt("Digite o valor de C:"));
+  let numA = Number(document.getElementById("valorA").value);
+  let numB = Number(document.getElementById("valorB").value);
+  let numC = Number(document.getElementById("valorC").value);
 
   let resultadoDiv = document.querySelector("#resolucao4");
   resultadoDiv.innerHTML = ""; //Apaga o resultado anterior
