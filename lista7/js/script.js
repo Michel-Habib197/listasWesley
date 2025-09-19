@@ -178,3 +178,9 @@ function calcularEquacao() {
     }
   }
 }
+function limparCampos() {
+  document.getElementById("valorA").value = "";
+  document.getElementById("valorB").value = "";
+  document.getElementById("valorC").value = "";
+  document.getElementById("resolucao4").innerHTML = "";
+}

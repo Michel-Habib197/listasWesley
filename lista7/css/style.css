@@ -1,4 +1,155 @@
+/* Reset básico */
 * {
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  background-color: #f5f5f5;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem;
+}
+
+/* Título */
+.titulo {
+  display: flex;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #252440;
+  margin-top: 1rem;
+}
+
+/* Cada questão vira um "card" */
+section {
+  background: #fff;
+  border-radius: 0.6rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+}
+
+/* Estilo dos enunciados */
+.enunciado1,
+.enunciado2,
+.enunciado3,
+.enunciado4 {
+  background: rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  border-radius: 0.4rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Cores diferenciadas para cada questão */
+.questao1 {
+  border-left: 6px solid rgb(0, 129, 28);
+}
+
+.questao2 {
+  border-left: 6px solid #f0c000;
+}
+
+.questao3 {
+  border-left: 6px solid #0077b6;
+}
+
+.questao4 {
+  border-left: 6px solid #8a2be2;
+}
+
+/* Inputs */
+input[type="number"] {
+  padding: 0.4rem 0.6rem;
+  margin: 0.4rem 0.6rem 0.4rem 0;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+input[type="number"]:focus {
+  border: 1px solid #252440;
+}
+
+/* Botões */
+button {
+  background-color: #252440;
+  color: whitesmoke;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  margin: 0.4rem 0.2rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.1s ease;
+  font-size: 0.95rem;
+}
+
+button:hover {
+  background-color: #3c3a66;
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* Resultados */
+.resultado,
+#saida,
+#resolucao4 {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #fafafa;
+  border-radius: 0.4rem;
+  border: 1px solid #e0e0e0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  body {
+    padding: 0.5rem;
+  }
+
+  section {
+    padding: 1rem;
+  }
+
+  input[type="number"], button {
+    width: 100%;
+    margin: 0.3rem 0;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* * {
     font-size: 16px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     box-sizing: border-box;
@@ -18,21 +169,27 @@ body {
     gap: 1rem;
 }
 
-
-.questao1 {
-    border: 0.3rem solid yellow;
+section{
+    margin: 1rem;
+    margin-inline: 0;
+    padding: 2rem;
 }
 
-.questao2 {
-    border: 0.3rem solid blue;
+button{
+    background-color: #252440;
+    color: whitesmoke;
+    border: none;
+    padding: 0.5rem 1rem;
+    margin: 0.3rem 0;
+    border-radius: 0.4rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 
-.questao3 {
-    border: 0.3rem solid green;
-}
 
-.questao4 {
-    border: 0.3rem solid brown;
+.titulo {
+    display: flex;
+    justify-content: center;
 }
 
 .enunciado1,
@@ -41,13 +198,17 @@ body {
 .enunciado4 {
     padding: 1rem;
     margin-bottom: 2rem;
-    border: 0.2rem solid goldenrod;
 }
 
-.resolucao1,
-.resolucao2,
-.resolucao3,
-.resolucao4 {
-    padding: 1rem;
-      border: 0.2rem solid rgb(157, 206, 125);
+.questao1,
+.questao3 {
+    background-color: rgb(0, 129, 28);
+    color: #f0ff1b;
+    box-shadow: inset;
 }
+
+.questao2,
+.questao4 {
+    background-color: #f0ff1b;
+    color: rgb(0, 129, 28);
+} */
