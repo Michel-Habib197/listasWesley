@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Vetor e Matriz</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <h1>Vetor e Matriz</h1>
+
+  <!-- Vetor --> 
+  <div class="container">
+    <h2>1) Vetor (10 posições)</h2>
+    <div id="vetor-inputs"></div><br>
+    <button onclick="lerVetor()">Ler Vetor</button>
+    <button onclick="imprimirVetor(vetor)">Início → Fim</button>
+    <button onclick="imprimirVetorInvertido(vetor)">Fim → Início</button>
+    <button onclick="imprimirPosicoesImpares(vetor)">Números Ímpares</button>
+    <button onclick="mostrarSomaPares(vetor)">Soma os Pares</button>
+    <button onclick="mostrarMaiorValor(vetor)">Maior Valor</button>
+    <div id="saida-vetor" class="output"></div>
+  </div>
+
+  <!-- Matriz -->
+
+  <div class="container">
+    <h2>2) Matriz (5 x 5)</h2>
+    <div id="matriz-inputs"></div><br>
+    <button onclick="lerMatriz()">Mostrar Matriz</button>
+    <button onclick="imprimirMatriz(matriz)">Imprimir Matriz</button>
+    <button onclick="diagonalPrincipal(matriz)">Diagonal Principal</button>
+    <button onclick="diagonalSecundaria(matriz)">Diagonal Secundária</button>
+    <button onclick="linhasImpares(matriz)">Linhas Ímpares</button>
+    <button onclick="colunasPares(matriz)">Colunas Pares</button>
+    <button onclick="linhasParesColunasImpares(matriz)">Linhas Pares e Colunas Ímpares</button>
+    <br>
+    <div id="saida-matriz" class="output"></div>
+  </div>
+</body>
+</html>
