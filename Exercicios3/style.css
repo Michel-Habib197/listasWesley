@@ -1,0 +1,302 @@
+/* Exercício 1 */
+
+/* Estilo do contêiner das imagens */
+.container-casa {
+  height: 29rem;
+  width: 52rem;
+  border: 2px green solid;
+  margin: 3rem auto;                    
+  padding: 0.2rem;
+  text-align: center;                    /* centraliza as imagens */
+}
+
+/* Estilo das imagens */
+.imgcasa {
+  height: 28rem;
+  width: 25rem;
+  border: 2px red solid;
+  margin: 0.3rem;
+}
+
+/* Exercício 2 */
+
+.body-atv2, .body-curriculo {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #1e1e2f;
+  color: #e0e0e0;
+  margin: 0;
+  padding: 2rem;
+  text-align: center;
+}
+
+.titulo-cartao {
+  text-align: center;
+  font-size: 2rem;
+  background: linear-gradient(90deg, #a855f7, #7e22ce);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+.cartao-atv2, .cartao-curr {
+  background: linear-gradient(145deg, #2c2a3a, #1f1c2b);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  padding: 1.5rem;
+  margin: 1rem auto;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 400px;
+}
+
+.cartao-atv2:hover, .cartao-curr:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.6);
+}
+
+.corpo-cartao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.imagem-cartao {
+  width: 12.5rem;
+  height: 12.5rem;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s;
+}
+
+.imagem-cartao:hover {
+  transform: scale(1.05);
+}
+
+.descricao-cartao, .conteudo {
+  font-size: 0.95rem;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+.rodape-cartao {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.botao-cartao, .botao-pra-voltar a, .link-cartao {
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  background: #a855f7;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.botao-cartao:hover, .botao-pra-voltar a:hover, .link-cartao:hover {
+  background: #7e22ce;
+  transform: translateY(-2px);
+}
+
+.botao-pra-voltar {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+
+/* Exercício 3 */
+
+.body-supermercado {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #1e1e2f;
+  color: #e0e0e0;
+  margin: 0;
+  padding: 2rem;
+}
+
+.h1-supermercado {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  background: linear-gradient(90deg, #a855f7, #7e22ce);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.cartao-atv3 {
+  background: linear-gradient(145deg, #2c2a3a, #1f1c2b);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cartao-atv3:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.6);
+}
+
+.img-produto {
+  width: 150px;
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: transform 0.3s;
+}
+
+.img-produto:hover {
+  transform: scale(1.05);
+}
+
+.titulo-produto {
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+  color: #dcd6f7;
+}
+
+.descricao {
+  font-size: 0.9rem;
+  color: #bbb;
+  margin: 0.5rem 0;
+}
+
+.preco {
+  font-size: 1.1rem;
+  color: #4ade80;
+  font-weight: bold;
+  margin: 0.5rem 0;
+}
+
+.botao {
+  display: inline-block;
+  margin-top: 0.5rem;
+  text-decoration: none;
+  color: white;
+  background: #a855f7;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.botao:hover {
+  background: #7e22ce;
+  transform: translateY(-2px);
+}
+
+
+
+/* Css Exercicio 4, 5, 6 e 7 */
+
+
+/* Reset e estilo base */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #1e1e2f; /* fundo escuro */
+  color: #e0e0e0;
+  margin: 0;
+  padding: 2rem;
+}
+
+/* Título */
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  background: linear-gradient(90deg, #a855f7, #7e22ce);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Cards */
+.card {
+  background: linear-gradient(145deg, #2c2a3a, #1e1c29);
+  padding: 1.5rem;
+  margin: 1.5rem auto;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  width: 400px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0,0,0,0.6);
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #dcd6f7;
+  margin-bottom: 1rem;
+}
+
+/* Inputs e selects */
+input, select {
+  display: block;
+  margin: 0.5rem 0;
+  padding: 0.7rem;
+  width: 94%;
+  font-size: 14px;
+  border: 1px solid #555;
+  border-radius: 6px;
+  background: #2e2c3e;
+  color: #e0e0e0;
+  transition: border 0.3s, background 0.3s;
+}
+
+input:focus, select:focus {
+  border-color: #a855f7;
+  outline: none;
+  background: #3a374e;
+}
+
+/* Botões */
+button {
+  background: #a855f7; /* roxo moderno */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 0.7rem;
+  font-size: 1rem;
+  transition: background 0.3s, transform 0.2s;
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+button:hover {
+  background: #7e22ce; /* roxo escuro */
+  transform: translateY(-2px);
+}
+
+/* Resultados */
+.resultado {
+  margin-top: 0.5rem;
+  font-weight: bold;
+  color: #4ade80; /* verde suave */
+  font-size: 1rem;
+}
+
+/* Ajustes específicos */
+.confirm-button {
+  width: 100%;
+}
+
+#sexo, #condicao {
+  width: 100%;
+}

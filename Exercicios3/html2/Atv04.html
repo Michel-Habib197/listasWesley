@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Exercicio 3</title>
+  <link rel="stylesheet" href="style.css">
+
+  <script>
+
+    // Exercício 4 JS
+
+    function verificarParImpar() {
+      let num = parseInt(document.getElementById("numParImpar").value);
+      if (isNaN(num)) {
+        document.getElementById("resParImpar").innerText = "Digite um número válido!";
+      } else {
+        document.getElementById("resParImpar").innerText = 
+          (num % 2 === 0) ? "O número " + num + " é PAR." : "O número " + num + " é ÍMPAR.";
+      }
+    }
+
+    // Exercício 5 JS
+
+    function ordenarDecrescente() {
+      let v1 = parseInt(document.getElementById("valor1").value);
+      let v2 = parseInt(document.getElementById("valor2").value);
+      let v3 = parseInt(document.getElementById("valor3").value);
+      if (isNaN(v1) || isNaN(v2) || isNaN(v3)) {
+        document.getElementById("resOrdem").innerText = "Digite três números válidos!";
+      } else {
+        let arr = [v1, v2, v3];
+        arr.sort((a, b) => b - a); // ordem decrescente
+        document.getElementById("resOrdem").innerText = "Ordem decrescente: " + arr.join(", ");
+      }
+    }
+
+    // Exercício 6 JS
+
+    function calcularPesoIdeal() {
+      let h = parseFloat(document.getElementById("altura").value);
+      let sexo = document.getElementById("sexo").value;
+      if (isNaN(h) || sexo === "") {
+        document.getElementById("resPeso").innerText = "Preencha altura e sexo!";
+      } else {
+        let peso;
+        if (sexo === "M") {
+          peso = (72.7 * h) - 58;
+        } else {
+          peso = (62.1 * h) - 44.7;
+        }
+        document.getElementById("resPeso").innerText = "Peso ideal: " + peso.toFixed(2) + " kg";
+      }
+    }
+
+    // Exercício 7 JS
+
+    function calcularPreco() {
+      let preco = parseFloat(document.getElementById("preco").value);
+      let cond = document.getElementById("condicao").value;
+      if (isNaN(preco) || cond === "") {
+        document.getElementById("resPreco").innerText = "Preencha os campos corretamente!";
+      } else {
+        let final;
+        switch (cond) {
+          case "1":
+            final = preco * 0.9;
+            break;
+          case "2":
+            final = preco * 0.95;
+            break;
+          case "3":
+            final = preco;
+            break;
+          case "4":
+            final = preco * 1.06;
+            break;
+          default:
+            final = preco;
+        }
+        document.getElementById("resPreco").innerText = "Preço final: R$ " + final.toFixed(2);
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>Atividade Wesley 4, 5, 6 e 7</h1>
+
+  <!-- Exercício 4 -->
+
+  <div class="card">
+    <h2>4 - Verificar se o número é par ou impar</h2>
+    <input type="number" id="numParImpar" placeholder="Digite um número">
+    <button class="confirm-button" onclick="verificarParImpar()">Verificar</button>
+    <p id="resParImpar" class="resultado"></p>
+  </div>
+
+  <!-- Exercício 5 -->
+   
+  <div class="card">
+    <h2>5 - Valores Ordem Decrescente</h2>
+
+    <input type="number" id="valor1" placeholder="Digite o primeiro valor">
+    <input type="number" id="valor2" placeholder="Digite o segundo valor">
+    <input type="number" id="valor3" placeholder="Digite o terceiro valor">
+
+    <button class="confirm-button" onclick="ordenarDecrescente()">Ordenar</button>
+
+    <p id="resOrdem" class="resultado"></p>
+  </div>
+
+
+  <!-- Exercício 6 -->
+   
+  <div class="card">
+    <h2>6 - Peso Ideal</h2>
+    <input type="number" step="0.01" id="altura" placeholder="Digite a altura (m)">
+    <select id="sexo">
+      <option value="">Selecione o sexo</option>
+      <option value="M">Masculino</option>
+      <option value="F">Feminino</option>
+    </select>
+    <button class="confirm-button" onclick="calcularPesoIdeal()">Calcular</button>
+    <p id="resPeso" class="resultado"></p>
+  </div>
+
+  <!-- Exercício 7 -->
+
+  <div class="card">
+    <h2>7 - Preço do Produto</h2>
+    <input type="number" step="0.01" id="preco" placeholder="Digite o preço (R$)">
+    <select id="condicao">
+      <option value="">Selecione a condição de pagamento</option>
+      <option value="1">1 - À vista (Dinheiro/PIX) - 10% desconto</option>
+      <option value="2">2 - À vista (Cartão) - 5% desconto</option>
+      <option value="3">3 - 2x sem juros</option>
+      <option value="4">4 - 3x com 6% de juros</option>
+    </select>
+    <button class="confirm-button" onclick="calcularPreco()">Calcular</button>
+    <p id="resPreco" class="resultado"></p>
+  </div>
+</body>
+</html>
