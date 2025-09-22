@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista12</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
 </head>
 
 <body>
-    <h1>Lista 12</h1>
+    <h1 class="titulo">Lista 12</h1>
     <section id="questao1" class="questao1">
         <div id="enunciado1" class="enunciado1">
             Leia um número natural a partir do teclado e:
@@ -24,19 +26,39 @@
             </div>
         </div>
         <div id="resolucao1" class="resolucao1">
-            <div id="resolucao1a" class="resolucao1a"></div>
-            <div id="resolucao1b" class="resolucao1b"></div>
+            <input type="number" id="numero" placeholder="Digite um número natural">
+            <button onclick="executarEx1()">Executar</button>
+
+            <div id="saida"></div>
         </div>
     </section>
 
     <section id="questao2" class="questao2">
         <div id="enunciado2" class="enunciado2">
-            <div id="enunciado2a" class="enunciado2a"></div>
-            <div id="enunciado2b" class="enunciado2b"></div>
-            <div id="enunciado2c" class="enunciado2c"></div>
+            2) Processe um vetor de 10 posições de números inteiros. O algoritmo deve:
+            <div id="enunciado2a" class="enunciado2a">
+                a. Possuir uma função para ler o vetor a partir do teclado e retornar o vetor
+                informado.
+            </div>
+            <div id="enunciado2b" class="enunciado2b">
+                b. Possuir uma função que receba o vetor como argumento e que imprima o
+                vetor do início para o fim.
+            </div>
+            <div id="enunciado2c" class="enunciado2c">
+                c. Possuir uma função que receba o vetor como argumento e que imprima o
+                vetor do fim para o início.
+            </div>
         </div>
 
+
         <div id="resolucao2" class="resolucao2">
+            <p>Digite 10 números inteiros (pressione Enter a cada número):</p>
+
+            <input type="number" id="entrada" placeholder="Digite um número e pressione Enter">
+            <div id="status"></div>
+
+            <button id="executarBtn" onclick="executarEx2()" disabled>Executar Exercício 2</button>
+
             <div id="resolucao2a" class="resolucao2a"></div>
             <div id="resolucao2b" class="resolucao2b"></div>
             <div id="resolucao2c" class="resolucao2c"></div>
