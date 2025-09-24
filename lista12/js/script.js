@@ -60,7 +60,7 @@ function armazenarNumero() {
     if (vetor.length < 10) {
         vetor.push(numero);
         document.getElementById("status").innerHTML =
-            `Números digitados até agora: [${vetor.join(", ")}] (${vetor.length}/10)`;
+            `Números digitados até agora: [${vetor.join(", ")}]`;
     }
 
     entrada.value = ""; // limpa a caixa após digitar
@@ -92,4 +92,95 @@ function executarEx2() {
 
     document.getElementById("resolucao2c").innerHTML =
         `<strong>Do fim para o início:</strong> [${imprimirVetorFimInicio(vetor)}]`;
+}
+
+// ____________________________________________________________________
+// Funções Exercício 3
+
+let matriz = [];
+let valores = [];
+
+// Captura enter no input
+document.getElementById("entrada3").addEventListener("keydown", function (event) {
+    if (event.key === "Enter") {
+        armazenarNumeroMatriz();
+    }
+});
+
+// (a) Armazenar Matriz
+function armazenarNumeroMatriz() {
+    let entrada = document.getElementById("entrada3");
+    let numero = parseInt(entrada.value);
+
+    if (isNaN(numero)) {
+        alert("Digite um número válido!");
+        entrada.value = "";
+        return;
+    }
+
+    if (valores.length < 9) {
+        valores.push(numero);
+        document.getElementById("status3").innerHTML =
+            `Valores digitados até agora: [${valores.join(", ")}] (${valores.length}/9)`;
+    }
+
+    entrada.value = "";
+
+    if (valores.length === 9) {
+        document.getElementById("executarBtn3").disabled = false;
+        entrada.disabled = true;
+
+        // Preenche matriz 3x3
+        matriz = [];
+        for (let i = 0; i < 3; i++) {
+            matriz.push(valores.slice(i * 3, i * 3 + 3));
+        }
+    }
+}
+
+// (b) Imprimir matriz na tela
+function imprimirMatriz(m) {
+    return m.map(linha => `[${linha.join(", ")}]`).join("<br>");
+}
+
+// (c) Imprimir colunas pares
+function imprimirColunasPares(m) {
+    let resultado = [];
+    for (let i = 0; i < m.length; i++) {
+        let linha = [];
+        for (let j = 0; j < m[i].length; j++) {
+            if ((j + 1) % 2 === 0) {
+                linha.push(m[i][j]);
+            }
+        }
+        resultado.push(`[${linha.join(", ")}]`);
+
+    }
+    return resultado.join("<br>");
+}
+
+// (d) Imprimir linhas impares
+function imprimirLinhasImpares(m) {
+    let resultado = [];
+    for (let i = 0; i < m.length; i++) {
+        if ((i + 1) % 2 !== 0) {
+            resultado.push(`[${m[i].join(", ")}]`);
+        }
+    }
+    return resultado.join("<br>");
+}
+
+// Função principal
+function executarEx3() {
+    document.getElementById("resolucao3a").innerHTML =
+        `<strong>Matriz preenchida:</strong><br>${imprimirMatriz(matriz)}`;
+
+    document.getElementById("resolucao3b").innerHTML =
+        `<strong>Matriz completa:</strong><br>${imprimirMatriz(matriz)}`;
+
+    document.getElementById("resolucao3c").innerHTML =
+        `<strong>Colunas pares:</strong><br>${imprimirColunasPares(matriz)}`;
+
+    document.getElementById("resolucao3d").innerHTML =
+        `<strong>Linhas ímpares:</strong><br>${imprimirLinhasImpares(matriz)}`;
 }

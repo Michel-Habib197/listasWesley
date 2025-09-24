@@ -6,14 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista12</title>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
 </head>
 
 <body>
     <h1 class="titulo">Lista 12</h1>
     <section id="questao1" class="questao1">
         <div id="enunciado1" class="enunciado1">
-            Leia um número natural a partir do teclado e:
+            1) Leia um número natural a partir do teclado e:
             <div id="enunciado1a" class="enunciado1a">
                 a) Possua uma função que receba o número natural informado como argumento
                 e imprima na tela todos os números naturais ímpares menores ou iguais ao
@@ -67,13 +67,25 @@
 
     <section id="questao3" class="questao3">
         <div id="enunciado3" class="enunciado3">
-            <div id="enunciado3a" class="enunciado3a"></div>
-            <div id="enunciado3b" class="enunciado3b"></div>
-            <div id="enunciado3c" class="enunciado3c"></div>
-            <div id="enunciado3d" class="enunciado3d"></div>
+            3) Processe uma matriz 3 x 3 de números inteiros. O algoritmo deve:
+            <div id="enunciado3a" class="enunciado3a">a. Possuir uma função para preencher a matriz e retorná-la.</div>
+            <div id="enunciado3b" class="enunciado3b">b. Possuir uma função que receba a matriz como argumento e imprima
+                a matriz na tela.</div>
+            <div id="enunciado3c" class="enunciado3c">c. Possuir uma função que receba a matriz como argumento e imprima
+                os
+                elementos das colunas pares.</div>
+            <div id="enunciado3d" class="enunciado3d">d. Possuir uma função que receba a matriz como argumento e imprima
+                os
+                elementos das linhas ímpares.</div>
         </div>
 
         <div id="resolucao3" class="resolucao3">
+            <p>Digite os 9 números da matriz 3x3 (pressione Enter a cada número):</p>
+            <input type="number" id="entrada3" placeholder="Digite um valor e pressione Enter">
+
+            <div id="status3"></div>
+            <button id="executarBtn3" onclick="executarEx3()" disabled>Executar Exercício 3</button>
+
             <div id="resolucao3a" class="resolucao3a"></div>
             <div id="resolucao3b" class="resolucao3b"></div>
             <div id="resolucao3c" class="resolucao3c"></div>
