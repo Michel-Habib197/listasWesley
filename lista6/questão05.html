@@ -19,23 +19,23 @@
 
 <script>
 function folha(){
-  let c = parseInt(document.getElementById("colab").value);
+  let c = document.getElementById("colab").value.trim();
   let n = document.getElementById("nome").value.trim().toLowerCase();
   let h = parseFloat(document.getElementById("horas").value);
 
   let tabela = {
-    101:{nome:"Ana Beatriz", valor:45.78},
-    12:{nome:"Bruna Carvalho", valor:60.00},
-    31:{nome:"Carlos Jr", valor:38.99},
-    43:{nome:"Diogo Ribeiro", valor:45.78},
-    50:{nome:"Ester Silva", valor:45.78},
-    62:{nome:"Wesley Silva", valor:65.78}
+    "101":{nome:"Ana Beatriz", valor:45.78},
+    "12":{nome:"Bruna Carvalho", valor:60.00},
+    "31":{nome:"Carlos Jr", valor:38.99},
+    "43":{nome:"Diogo Ribeiro", valor:45.78},
+    "50":{nome:"Ester Silva", valor:45.78},
+    "62":{nome:"Wesley Silva", valor:65.78}
   };
 
   let col = null;
 
-  // Busca pelo código
-  if(!isNaN(c)){
+  // Busca pelo código (como string!)
+  if(c && tabela[c]){
     col = tabela[c];
   }
 

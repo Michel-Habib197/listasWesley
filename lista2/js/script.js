@@ -27,7 +27,7 @@ function calcularNovoSalario(){
   const novoSalario = salarioAtual + salarioAtual*0.25;
 
   //Mostra o novo salário na tela
-  document.getElementById("novoSalario").textContent = novoSalario.toFixed(2) + "reais"
+  document.getElementById("novoSalario").textContent = novoSalario.toFixed(2) + " reais"
 }
 
 function converterCelsiusFahrenheit(){

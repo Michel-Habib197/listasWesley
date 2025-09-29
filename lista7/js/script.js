@@ -36,7 +36,7 @@ function calcular() {
   document.getElementById("saida").innerHTML = saida;
 }
 
-function novoCalculo() {
+function novoCalculo1() {
   document.getElementById("valorCompra").value = "";
   document.getElementById("valorPago").value = "";
   document.getElementById("saida").innerHTML = "";
@@ -80,10 +80,10 @@ function finalizarCalculo() {
       <p>Quantidade de números: ${numeros.length}</p>
       <p>Soma dos números: ${soma}</p>
       <p><strong>Média aritmética: ${media.toFixed(2)}</strong></p>
-      <button onclick="novoCalculo()">Novo cálculo</button>
+      <button onclick="novoCalculo2()">Novo cálculo</button>
     `;
 }
-function novoCalculo() {
+function novoCalculo2() {
   numeros = [];
   document.getElementById("resultadoMedia").innerHTML = "";
   document.getElementById("numeroInput").value = "";

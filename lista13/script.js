@@ -23,6 +23,21 @@ function appendOperator(op) {
     }
     return;
   }
+
+  if (op === '%') {
+    if (currentInput) {
+     
+      let numero = parseFloat(currentInput.split(" ").pop()); 
+      if (!isNaN(numero)) {
+        let porcentagem = numero / 100;
+        
+        currentInput = currentInput.replace(/[\d.]+$/, porcentagem.toString());
+        display.textContent = currentInput;
+      }
+    }
+    return;
+  }
+
   currentInput += " " + op + " ";
   display.textContent = currentInput;
 }
