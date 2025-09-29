@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercício 2 - Tabela Interativa</title>
+
+    <style>
+        body {
+            font-family: sans-serif;
+            vertical-align: top;
+            background-color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            margin: 0;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        h1 {
+            color: #3b5998;
+            margin-bottom: 20px;
+        }
+
+        #tabela-notas {
+            border-collapse: collapse;
+            width: 90%;
+            max-width: 800px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            font-size: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 14px;
+            text-align: left;
+            vertical-align: top;
+            transition: background-color 0.2s ease, color 0.2s ease; 
+        }
+
+        thead th {
+            background-color: #3b5998;
+            color: white;
+            font-weight: bold;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #f7f7f7;
+        }
+        tbody tr:nth-child(odd) {
+            background-color: #e9ebee;
+        }
+        
+        tbody tr:not(.media-row) td:not(.disciplina):hover {
+            background-color: #ff6f00; /* Laranja */
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        tr.media-row td {
+            background-color: #ff6f00 !important;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        tr.media-row:hover td {
+            background-color: #ffffff !important; 
+            color: #333 !important; 
+            cursor: pointer;
+        }
+
+        .disciplina {
+            vertical-align: top;
+            font-weight: bold;
+            background-color: #dcdcdc;
+        }
+        
+        .disciplina:hover {
+            background-color: #ff6f00; 
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Tabela de Notas</h1>
+
+    <table id="tabela-notas">
+        <thead>
+            <tr>
+                <th>Disciplina</th>
+                <th>Aluno</th>
+                <th>P1</th>
+                <th>P2</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="6" class="disciplina">Web</td>
+                <td>Ana</td>
+                <td>29</td>
+                <td>17</td>
+                <td>46</td>
+            </tr>
+            <tr>
+                <td>Eva</td>
+                <td>27</td>
+                <td>17</td>
+                <td>44</td>
+            </tr>
+            <tr>
+                <td>Gil</td>
+                <td>28</td>
+                <td>15</td>
+                <td>43</td>
+            </tr>
+            <tr>
+                <td>Ise</td>
+                <td>25</td>
+                <td>15</td>
+                <td>40</td>
+            </tr>
+            <tr>
+                <td>Ive</td>
+                <td>26</td>
+                <td>20</td>
+                <td>46</td>
+            </tr>
+            <tr class="media-row">
+                <td colspan="3">Média Web</td>
+                <td>43,8</td>
+            </tr>
+            <tr>
+                <td rowspan="6" class="disciplina">Lógica de Programação</td>
+                <td>Ana</td>
+                <td>29</td>
+                <td>17</td>
+                <td>46</td>
+            </tr>
+            <tr>
+                <td>Eva</td>
+                <td>27</td>
+                <td>17</td>
+                <td>44</td>
+            </tr>
+            <tr>
+                <td>Gil</td>
+                <td>28</td>
+                <td>15</td>
+                <td>43</td>
+            </tr>
+            <tr>
+                <td>Ise</td>
+                <td>25</td>
+                <td>15</td>
+                <td>40</td>
+            </tr>
+            <tr>
+                <td>Ive</td>
+                <td>26</td>
+                <td>20</td>
+                <td>46</td>
+            </tr>
+            <tr class="media-row">
+                <td colspan="3">Média Lógica de Programação</td>
+                <td>43,8</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabela = document.getElementById('tabela-notas');
+            const celulas = tabela.querySelectorAll('th, td');
+
+            celulas.forEach(celula => {
+                celula.addEventListener('click', () => {
+                    const conteudo = celula.innerText;
+                    alert(`Você clicou no valor: "${conteudo}"`);
+                });
+            });
+
+        });
+    </script>
+</body>
+</html>
+

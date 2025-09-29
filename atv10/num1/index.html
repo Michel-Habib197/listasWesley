@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela Interativa de Notas</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+            margin: 0;
+        }
+
+        table {
+            width: 100%;
+            max-width: 800px; 
+            border-collapse: collapse;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden; 
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 12px;
+        }
+
+        thead th {
+            background-color: #4a69bd;
+            color: white;
+        }
+
+
+        tbody tr:nth-child(even) {
+            background-color: #dfe3ee;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: #f7f7f7;
+        }
+
+        tbody tr:not(.media-row):hover {
+            background-color: #ffffff !important;
+            color: #FF4500;
+            font-weight: bold;
+            font-size: 1.05rem;
+            cursor: pointer;
+        }
+
+        .media-row {
+            background-color: orange !important;
+            color: white !important;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <table id="gradesTable">
+        <thead>
+            <tr>
+                <th>Nome do Aluno</th>
+                <th>Nota P1</th>
+                <th>Nota P2</th>
+                <th>Nota T1</th>
+                <th>Nota Total</th>
+                <th>Faltas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Ana</td>
+                <td>29</td>
+                <td>17</td>
+                <td>27</td>
+                <td>73</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Gisele</td>
+                <td>28</td>
+                <td>18</td>
+                <td>24</td>
+                <td>70</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>Jane</td>
+                <td>26</td>
+                <td>20</td>
+                <td>24</td>
+                <td>70</td>
+                <td>1</td>
+            </tr>
+            <tr>
+                <td>Jorge</td>
+                <td>25</td>
+                <td>19</td>
+                <td>29</td>
+                <td>73</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Marina</td>
+                <td>30</td>
+                <td>16</td>
+                <td>27</td>
+                <td>73</td>
+                <td>1</td>
+            </tr>
+             <tr class="media-row">
+                <td>Média</td>
+                <td colspan="5">71,8</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        document.getElementById("gradesTable").addEventListener("click", function(event) {
+            const cell = event.target.closest("td, th");
+            if (cell) {
+                alert("Você clicou no valor: " + cell.textContent.trim());
+            }
+        });
+    </script>
+
+</body>
+</html>
