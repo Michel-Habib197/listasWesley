@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <title>Cardápio - Okinaki</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body {
+            background-color: #000000;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #f8f9fa;
+        }
+        .container {
+            background-color: #000000;
+            border-radius: 15px;
+            padding: 40px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+        .card {
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            border: 1px solid #dee2e6;
+            background-color: #FFFFFF;
+            color: #000000;
+        }
+        .card:hover {
+            transform: scale(1.02);
+            box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.1);
+        }
+        .card-title {
+            color: #000000;
+        }
+        .card-horizontal-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            min-height: 200px;
+        }
+        @media (max-width: 575.98px) {
+            .card-horizontal-img {
+                max-height: 250px;
+                min-height: auto;
+            }
+        }
+        h1, h2 {
+            color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="text-center mb-5">
+        <h1 class="display-4"><i class="bi bi-cup-hot-fill"></i> Okinaki</h1>
+        <p class="lead text-muted">Culinária asiática contemporânea.</p>
+    </div>
+
+    <h2 class="mb-4 text-center">Entradas</h2>
+    <div class="row justify-content-center">
+        <div class="col-lg-10 mb-4">
+            <div class="card overflow-hidden">
+                <div class="row g-0">
+                    <div class="col-sm-4">
+                        <img src="https://okinaki.com.br/wp-content/uploads/2025/02/berinjelamissoDSC07881-500x500.png" class="card-horizontal-img" alt="Berinjela com Missô">
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="card-body d-flex flex-column h-100">
+                            <h5 class="card-title">Berinjela com Missô</h5>
+                            <p class="card-text">Tempurá de berinjela japonesa, caramelo de missô, molho de tahini e tofu, chilli crunch oil.</p>
+                            <div class="mt-auto d-flex justify-content-between align-items-center">
+                                <p class="mb-0"><strong>R$ 38,00</strong></p>
+                                <button class="btn btn-outline-danger btn-pedido">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-10 mb-4">
+            <div class="card overflow-hidden">
+                <div class="row g-0">
+                    <div class="col-sm-4">
+                        <img src="https://okinaki.com.br/wp-content/uploads/2023/02/gyoza-300x300.png" class="card-horizontal-img" alt="Gyoza de porco">
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="card-body d-flex flex-column h-100">
+                            <h5 class="card-title">Gyoza de porco</h5>
+                            <p class="card-text">6 unidades do nosso delicioso pastelzinho cozido no vapor e grelhado.</p>
+                            <div class="mt-auto d-flex justify-content-between align-items-center">
+                                <p class="mb-0"><strong>R$ 38,00</strong></p>
+                                <button class="btn btn-outline-danger btn-pedido">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="mb-4 mt-4 text-center">Sushis</h2>
+    <div class="row justify-content-center">
+        <div class="col-lg-10 mb-4">
+            <div class="card overflow-hidden">
+                <div class="row g-0">
+                    <div class="col-sm-4">
+                        <img src="https://okinaki.com.br/wp-content/uploads/2023/07/Okinaki_2022-09-13-18-300x300.png" class="card-horizontal-img" alt="Sashimi de salmão">
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="card-body d-flex flex-column h-100">
+                            <h5 class="card-title">Sashimi de salmão</h5>
+                            <p class="card-text">Fatias de salmão cru servido com molho ponzu, yuzu kosho, raspas de limão e conservas caseiras.</p>
+                            <div class="mt-auto d-flex justify-content-between align-items-center">
+                                <p class="mb-0"><strong>R$ 41,00</strong></p>
+                                <button class="btn btn-outline-danger btn-pedido">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-10 mb-4">
+            <div class="card overflow-hidden">
+                <div class="row g-0">
+                    <div class="col-sm-4">
+                        <img src="https://okinaki.com.br/wp-content/uploads/2023/07/Okinaki_2022-09-13-12-300x300.png" class="card-horizontal-img" alt="Futomaki de atum picante">
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="card-body d-flex flex-column h-100">
+                            <h5 class="card-title">Futomaki de atum picante (4 un.)</h5>
+                            <p class="card-text">Recheado de atum, abacate, tamagoyaki, maionesa picante e shisso.</p>
+                            <div class="mt-auto d-flex justify-content-between align-items-center">
+                                <p class="mb-0"><strong>R$ 39,00</strong></p>
+                                <button class="btn btn-outline-danger btn-pedido">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <h2 class="mb-4 mt-4 text-center">Sopas</h2>
+    <div class="row justify-content-center">
+        <div class="col-lg-10 mb-4">
+            <div class="card overflow-hidden">
+                <div class="row g-0">
+                    <div class="col-sm-4">
+                        <img src="https://okinaki.com.br/wp-content/uploads/2023/07/tomyumDSC03950-300x300.png" class="card-horizontal-img" alt="Tom Yum">
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="card-body d-flex flex-column h-100">
+                            <h5 class="card-title">Tom Yum</h5>
+                            <p class="card-text">Sopa típica tailandesa de camarões com cogumelos, tomate, macarrão de arroz e ervas frescas.</p>
+                            <div class="mt-auto d-flex justify-content-between align-items-center">
+                                <p class="mb-0"><strong>R$ 87,00</strong></p>
+                                <button class="btn btn-outline-danger btn-pedido">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-10 mb-4">
+            <div class="card overflow-hidden">
+                <div class="row g-0">
+                    <div class="col-sm-4">
+                        <img src="https://okinaki.com.br/wp-content/uploads/2023/07/Okinaki_2022-09-13-82-300x300.png" class="card-horizontal-img" alt="Missô Ramen">
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="card-body d-flex flex-column h-100">
+                            <h5 class="card-title">Missô Ramen</h5>
+                            <p class="card-text">Sopa de missô, macarrão de ramen, chashu, ovo, nori, verdura do dia, wakame, naruto.</p>
+                            <div class="mt-auto d-flex justify-content-between align-items-center">
+                                <p class="mb-0"><strong>R$ 57,00</strong></p>
+                                <button class="btn btn-outline-danger btn-pedido">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="mb-4 mt-4 text-center">Sobremesas</h2>
+    <div class="row justify-content-center">
+        <div class="col-lg-10 mb-4">
+            <div class="card overflow-hidden">
+                <div class="row g-0">
+                    <div class="col-sm-4">
+                        <img src="https://okinaki.com.br/wp-content/uploads/2023/07/Okinaki_2022-09-13-82-300x300.png" class="card-horizontal-img" alt="Tiramisù de Matchá">
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="card-body d-flex flex-column h-100">
+                            <h5 class="card-title">Tiramisù de Matchá</h5>
+                            <p class="card-text">Uma releitura do clássico italiano com o sabor inconfundível do chá verde japonês.</p>
+                            <div class="mt-auto d-flex justify-content-between align-items-center">
+                                <p class="mb-0"><strong>R$ 29,00</strong></p>
+                                <button class="btn btn-outline-danger btn-pedido">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-lg-10 mb-4">
+            <div class="card overflow-hidden">
+                <div class="row g-0">
+                    <div class="col-sm-4">
+                        <img src="https://okinaki.com.br/wp-content/uploads/2023/07/Okinaki_2022-09-13-79-300x300.png" class="card-horizontal-img" alt="Ganache de chocolate">
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="card-body d-flex flex-column h-100">
+                            <h5 class="card-title">Ganache de chocolate</h5>
+                            <p class="card-text">Com crumble de avelãs e compota de yuzu para um toque cítrico.</p>
+                            <div class="mt-auto d-flex justify-content-between align-items-center">
+                                <p class="mb-0"><strong>R$ 35,00</strong></p>
+                                <button class="btn btn-outline-danger btn-pedido">Pedir</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<div class="modal fade" id="pedidoModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header border-secondary">
+        <h5 class="modal-title">Pedido Adicionado!</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div id="modal-body-content" class="modal-body">
+      </div>
+      <div class="modal-footer border-secondary">
+        <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Continuar Escolhendo</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    const botoesPedido = document.querySelectorAll('.btn-pedido');
+    const pedidoModal = new bootstrap.Modal(document.getElementById('pedidoModal'));
+    const modalBody = document.getElementById('modal-body-content');
+
+    botoesPedido.forEach(function(botao) {
+        botao.addEventListener('click', function() {
+            const card = botao.closest('.card');
+            const nomePrato = card.querySelector('.card-title').textContent;
+            const precoPrato = card.querySelector('strong').textContent;
+            
+            const itemPedido = {
+                nome: nomePrato,
+                preco: precoPrato
+            };
+            
+            let carrinho = JSON.parse(localStorage.getItem('carrinhoDeCompras')) || [];
+            carrinho.push(itemPedido);
+            localStorage.setItem('carrinhoDeCompras', JSON.stringify(carrinho));
+
+            modalBody.textContent = `O item "${nomePrato}" foi adicionado ao seu pedido!`;
+            pedidoModal.show();
+        });
+    });
+</script>
+
+</body>
+</html>
+
